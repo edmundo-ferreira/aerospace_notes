@@ -1,0 +1,125 @@
+ \chapter{Structural Mechanics}
+
+
+ \section{Generalized Straight Beams}
+ A structural element or body with a dimension much larger than the other two, allows us to apply a simplified approach of the elasticity theory, by approximating the displacement fields, but without compromising the accuracy of the results.
+ We start by representing the stress-strain relations for a fully homogeneous isotropic body.
+
+ \begin{equation}
+ \begin{bmatrix}
+ \sigma_{xx}\\
+ \sigma_{yy}\\
+ \sigma_{zz}\\
+ \sigma_{yz}\\
+ \sigma_{xz}\\
+ \sigma_{xy}\\
+ \end{bmatrix}=
+ \begin{bmatrix}
+ \frac{E(1-\nu)}{(1+\nu)(1-2\nu)} & \frac{E\nu}{(1+\nu)(1-2\nu)} & \frac{E\nu}{(1+\nu)(1-2\nu)} & 0& 0&0\\[1mm]
+ \frac{E\nu}{(1+\nu)(1-2\nu)} & \frac{E(1-\nu)}{(1+\nu)(1-2\nu)} & \frac{E\nu}{(1+\nu)(1-2\nu)} & 0& 0&0\\[1mm]
+ \frac{E\nu}{(1+\nu)(1-2\nu)} & \frac{E\nu}{(1+\nu)(1-2\nu)} & \frac{E(1-\nu)}{(1+\nu)(1-2\nu)} & 0& 0&0\\[1mm]
+ 0 & 0 & 0 & \frac{E}{2(1+\nu)}  & 0 &0 \\[1mm]
+ 0 & 0 & 0 & 0  & \frac{E}{2(1+\nu)} &0 \\[1mm]
+ 0 & 0 & 0 & 0  & 0 &\frac{E}{2(1+\nu)} \\[1mm]
+ \end{bmatrix}=
+ \begin{bmatrix}
+ \epsilon_{xx}\\
+ \epsilon_{yy}\\
+ \epsilon_{zz}\\
+ 2\epsilon_{yz}\\
+ 2\epsilon_{xz}\\
+ 2\epsilon_{xy}\\
+ \end{bmatrix}
+ \label{elastic_isotropy}
+ \end{equation}
+
+
+ Depending on the geometry of the beam, different theories might be more accurate. Some of the more common beam theories are, Euler-Bernoulli for long slender beams (length is at least five times the largest cross section size) and the Timoshenko for short thick beams. There are many other theories for specific circumstances, however the Euler-Bernoulli is by far the most widely used theory.
+
+ The Euler-Bernoulli kinematic assumptions are:
+ \begin{enumerate}
+ \item Cross sections of the straight beam maintains its original shape after deformation. Therefore $\epsilon_{xx}=\epsilon_{yy}=\epsilon_{xy}=0$ and also $\nu=0$  
+ \item Plane cross sections of the straight beam stay plane after deformation.
+ \item Cross sections of the the straight beam perpendicular to the beam axis stay perpendicular after the deformation.  
+ \end{enumerate}
+
+ After the application of assumption 1 to \ref{elastic_isotropy} we obtain the following stress-strain relations. This relations is valid for all the beam theories mentioned above.
+
+ \begin{equation}
+ \begin{bmatrix}
+ \sigma_{xx}\\
+ \sigma_{yy}\\
+ \sigma_{zz}\\
+ \sigma_{yz}\\
+ \sigma_{xz}\\
+ \sigma_{xy}\\
+ \end{bmatrix}=
+ \begin{bmatrix}
+ E & 0 & 0 & 0& 0&0\\[1mm]
+ 0 & E & 0 & 0& 0&0\\[1mm]
+ 0 & 0 & E & 0& 0&0\\[1mm]
+ 0 & 0 & 0 & \frac{1}{G}  & 0 &0 \\[1mm]
+ 0 & 0 & 0 & 0  & \frac{1}{G} &0 \\[1mm]
+ 0 & 0 & 0 & 0  & 0 &\frac{1}{G} \\[1mm]
+ \end{bmatrix}=
+ \begin{bmatrix}
+ 0\\
+ 0\\
+ \epsilon_{zz}\\
+ 2\epsilon_{yz}\\
+ 2\epsilon_{xz}\\
+ 0\\
+ \end{bmatrix}
+ \end{equation}
+
+ The only stress components not zero are:
+ \begin{equation}
+ \begin{array}{c}
+ \sigma_{zz}=E\epsilon_{zz}\\[1mm]
+ \sigma_{yz}=\frac{1}{G}\epsilon_{yz}\\[1mm]
+ \sigma_{xz}=\frac{1}{G}\epsilon_{xz}\\[1mm]
+ \end{array}
+ \label{non_zero_stress}
+ \end{equation}
+
+ We ultimately would like to express the stress's on the beam but in order to do so we need futher information of the strains $\epsilon_{zz}, \epsilon_{yz}$ and $\epsilon_{xz}$.
+ Now introducing the infinitesimal strain-deformation relation.
+
+ \begin{equation}
+ \epsilon_{ij}=\frac{1}{2}(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}})
+ \end{equation}
+
+ \begin{equation}
+ \begin{array}{c}
+ \sigma_{zz}=E\frac{\partial u_{z}}{\partial z} \\[1mm]
+ \sigma_{yz}=\frac{1}{G}(\frac{\partial u_{y}}{\partial z}+\frac{\partial u_{z}}{\partial y}) \\[1mm]
+ \sigma_{xz}=\frac{1}{G}(\frac{\partial u_{x}}{\partial z}+\frac{\partial u_{z}}{\partial x}) \\[1mm]
+ \end{array}
+ \label{non_zero_stress}
+ \end{equation}
+
+
+ So we now need further information of the kinematic of the 
+ displacement fields and those are provided from hypothesis  2 and 3.
+
+ \begin{equation}
+ \begin{array}{c}
+ u_{x}(x,y,z)=u_{x}(z)=u\\[1mm]
+ u_{y}(x,y,z)=u_{y}(z)=v\\[1mm]
+ u_{z}(x,y,z)=u_{z}(z)-y\frac{\partial u_{y}}{\partial z}-x\frac{\partial u_{x}}{\partial z}=w -yv'-xu'
+ \end{array}
+ \label{kinematic_displacements}
+ \end{equation}
+
+ Thus substituting \ref{kinematic_displacements} in the \ref{non_zero_stress} we obtain the following stress according to Euler-Bernoulli assumptions.
+
+ \begin{equation}
+ \begin{array}{c}
+ \sigma_{zz}=E(w'-yv''-xu'') \\[1mm]
+ \sigma_{yz}=0 \\[1mm]
+ \sigma_{xz}=0 \\[1mm]
+ \end{array}
+ \label{euler-bernoulli-stresss}
+ \end{equation}
+
+

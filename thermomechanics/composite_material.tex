@@ -1,0 +1,119 @@
+\chapter{Composite Materials}
+
+\section{Micro Mechanics}
+Micro Mechanics deals only the determination of the characteristics of the \emph{ply} from the its basic constituents, matrix and fiber.
+One very common parameter of the ply material is the fractional volumes of each component on a composite ply of volume $V_c$.
+\begin{equation}
+v_i=\frac{V_i}{V_c}=\frac{V_i}{\sum\limits_{i} V_i}
+\end{equation}
+
+The determination of the height of each ply $h_i$, could be determined from the grammage ($\sfrac{kg}{m^2}$) of the fiber in the composite ply $m_{\square f}$.
+
+\begin{gather}
+\begin{align}
+\rho_f &= \frac{m_f}{V_f}=\frac{m_f}{v_f V_c} \nonumber \\
+\rho_f &= \frac{m_f}{v_f 1 hi} \qquad \quad  \text{for a volume of $1m^2$ and height $h_i$}\nonumber\\[1mm]
+h_i &= \frac{m_{\square f}}{v_f \rho_f}
+\end{align}
+\end{gather}
+The total height of \emph{laminate} $h_t$, made up from $n$ layers of ply is:
+
+\begin{gather}
+\begin{align}
+h_t&=\sum\limits_{i}^{n}h_i\\
+h_t&=nh_i \quad \text{if $h_i$ is equal on each layer}
+\end{align}
+\end{gather}
+
+We start off by a mass of the composite ply $m_c$, from the masses of fiber $m_f$, and mass of matrix $m_m$.
+\begin{subequations}
+\begin{align}
+m_{c}&=m_{m}+m_{f} \\
+\rho_c V_c&= \rho_m V_m + \rho_f V_f \nonumber \\
+\rho_c & = \rho_m v_m + \rho_f v_f \label{mixture_law}
+\end{align}
+\end{subequations}
+
+Equation \eqref{mixture_law} is know as the mixture law and plays a pivot role in the determination of other mechanical properties of each ply.
+
+\begin{gather}
+\begin{bmatrix}
+\epsilon_{xx}\\
+\epsilon_{yy}\\
+\epsilon_{zz}\\
+\epsilon_{yz}\\
+\epsilon_{xz}\\
+\epsilon_{xy}\\
+\end{bmatrix}=
+\begin{bmatrix}
+\frac{1}{E_x} & -\frac{\nu_{xy}}{E_y} &  -\frac{\nu_{xz}}{E_z} & 0& 0&0\\[1mm]
+-\frac{\nu_{yx}}{E_x} & \frac{1}{E_y} &  -\frac{\nu_{yz}}{E_z} & 0& 0&0\\[1mm]
+-\frac{\nu_{zx}}{E_x} & -\frac{\nu_{zy}}{E_y} &  \frac{1}{E_z} & 0& 0&0\\[1mm]
+0 & 0 & 0 & \frac{1}{G_{yz}}  & 0 &0 \\[1mm]
+0 & 0 & 0 & 0  & \frac{1}{G_{xz}} &0 \\[1mm]
+0 & 0 & 0 & 0  & 0 &\frac{1}{G_{xy}} \\[1mm]
+\end{bmatrix}=
+\begin{bmatrix}
+\sigma_{xx}\\
+\sigma_{yy}\\
+\sigma_{zz}\\
+\sigma_{yz}\\
+\sigma_{xz}\\
+\sigma_{xy}\\
+\end{bmatrix} \label{ortho_system}\\[2mm]
+\frac{\nu_{ij}}{E_{i}}=\frac{\nu_{ji}}{E_{j}}
+\end{gather}
+
+
+For plane stress (around the z axis), the system \eqref{ortho_system} can be reduced since $\sigma_{zz}=\sigma_{xz}=\sigma_{yz}=0$.
+
+
+
+\begin{subequations}
+\label{ply_system}
+\begin{align}
+\begin{bmatrix}
+\epsilon_{xx}\\
+\epsilon_{yy}\\
+\epsilon_{xy}\\
+\end{bmatrix}&=
+\begin{bmatrix}
+\frac{1}{E_x} & -\frac{\nu_{xy}}{E_y} &  0\\[1mm]
+-\frac{\nu_{yx}}{E_x} & \frac{1}{E_y} &  0\\[1mm]
+0 & 0 &\frac{1}{G_{xy}}\\[1mm]
+\end{bmatrix}=
+\begin{bmatrix}
+\sigma_{xx}\\
+\sigma_{yy}\\
+\sigma_{xy} 
+\end{bmatrix} \label{ply_matrix} \\[2mm] 
+\epsilon_{zz}&=- \left(\frac{\nu_{zx}}{E_x}\sigma_{xx} +\frac{\nu_{zy}}{E_y}\sigma_{yy}\right)
+\end{align}
+\end{subequations}
+\vspace{-6mm}
+\begin{align}
+\frac{\nu_{xy}}{E_{x}}=\frac{\nu_{yx}}{E_{y}} \label{ply_sym}
+\end{align}
+
+Equations \eqref{ply_system} and \eqref{ply_sym} provide the fundamental elastic relations of the ply system. It is clear from \ref{ply_matrix} that the constitutive relations only depend of four mechanical properties, $E_x$, $E_y$, $\nu_{xy}$ and $G_{xy}$.
+\newpage
+\textbf{Structural Teories} (Reddy Chapter 3)
+
+\begin{enumerate}
+\item[a] Reduced dimension theories (2-D and 1-D)
+	\begin{enumerate}
+	\item Classical (no shear deformation)
+	\item 1\textsuperscript{st} order shear deformation
+	\item 2\textsuperscript{nd} order shear deformation
+	\item 3\textsuperscript{rd} order shear deformation
+	\end{enumerate}
+\item[b] Three-dimensional elasticity theory (3-D)
+	\begin{enumerate}
+	\item Traditional 3D elasticity formuations
+	\item Layerwise theories
+	\end{enumerate}
+\item[c] Multiple model methods (2-D and 3-D)
+	
+\end{enumerate}
+
+ 

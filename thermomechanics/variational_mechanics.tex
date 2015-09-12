@@ -1,0 +1,61 @@
+% Using the knowledge of variational calculus we present classical mechanics in a variational formulation has exposed by Hamilton. This procedure is one of the most fundamental e leads to a clean presentation of the the following theories such as solid and fluid mechanics and 
+
+% \begin{defi}[\textbf{Classical Mechanical Action}($\mathcal{S}$)]
+% It's  defined has the functional of $q$ which is a trajectory function of a generalized degree of freedom (linear or angular) of a system, and the it's functor is called the Lagrangian $\mathcal{L}$, which represents all the energy forms of that system. The Lagrangian is a functor of $q$ and is time derivative $\dot{q}$.
+% \begin{gather} 
+% \mathcal{S}[q(t)]= \int_{t_1}^{t_2}\mathcal{L}[q,\dot{q}]dt
+% \label{action}
+% \end{gather}
+% \end{defi}
+
+% \begin{axi}[\textbf{Least Action}]
+% The first variation of the Action $\mathcal{S}$ is zero, and therefore a ``extrema'' of the functional.
+% \begin{gather}
+% \delta \mathcal{S}= 0
+% \label{least_action}
+% \end{gather}
+% \end{axi}
+
+% \begin{teo}[\textbf{Euler-Lagrange Equations}]
+% These equations represent differential equation of the motion of the system. The are obtained by applying \eqref{least_action} to \eqref{action}.
+% \begin{subequations}
+% \begin{align}
+% \delta \int_{t_1}^{t_2}\mathcal{L}[q,\dot{q}]dt = 0 \nonumber \\
+% \int_{t_1}^{t_2} \delta \mathcal{L}[q,\dot{q}] dt =0\nonumber \\
+% \int_{t_1}^{t_2}\left( \dfrac{\partial \mathcal{L}}{\partial q} \delta q + \dfrac{\partial \mathcal{L}}{\partial \dot{q}} \delta \dot{q} \right) dt = 0 \nonumber \\
+% \int_{t_1}^{t_2}\left( \dfrac{\partial \mathcal{L}}{\partial q} \delta q + \dfrac{\partial \mathcal{L}}{\partial \dot{q}} \dfrac{d \delta q}{dt} \right) dt = 0 \nonumber
+% \end{align}
+% \text{Integrating by parts the second term,} 
+% \begin{align}
+% \int_{t_1}^{t_2}\left( \dfrac{\partial \mathcal{L}}{\partial q} - \dfrac{d}{dt}\left(\dfrac{\partial \mathcal{L}}{\partial \dot{q}} \right) \right)\delta q\; dt + \left[ \dfrac{\partial \mathcal{L}}{\partial \dot{q}} \delta q \right]_{t_1}^{t_2} = 0 \nonumber
+% \end{align}
+% \end{subequations}
+% \text{noticing that $\delta q(t_1 )=\delta q(t_2 )=0$, using \eqref{ftv}, }
+% \begin{align}
+% \dfrac{\partial \mathcal{L}}{\partial q}=\dfrac{d}{dt}\left(\dfrac{\partial \mathcal{L}}{\partial \dot{q}} \right) 
+% \label{euler_lagrange}
+% \end{align}
+% \end{teo}
+
+% \begin{defi}[\textbf{Lagrangian and Energy}]In classical mechanics, the Lagrangian $\mathcal{L}$, represent all form of energy present in the system such as kinematic $T$, potential $V$, and if it's the case the work of other non-conservative forces $W_{nc}$. Some of these functor aren't usually dependent of velocity ($\dot{q}$), such has potential energy and the work of the non-conservative forces which can also be given by definition has the generalized force $Q$ by is variational generalized displacement $\delta q$.  
+% \begin{gather}
+%   \mathcal{L}= T - V + W_{nc}= T[q,\dot{q}]-V[q] + W_{nc}[q] \label{lagrangian_energy} \\
+%   \delta W_{nc}= \dfrac{\partial W_{nc}}{\partial q} \delta q \equiv Q \delta q \quad \Leftrightarrow \quad \dfrac{\partial W_{nc}}{\partial q}= Q  \label{work_conser}
+% \end{gather}
+% \label{def_lagrangian_energy}
+% \end{defi}
+
+
+% \begin{teo}[\textbf{Euler-Lagrange equations in Energy form}]
+% Using \eqref{euler_lagrange} and the definitions \eqref{lagrangian_energy}, and \eqref{work_conser}, 
+%   \begin{gather}
+%     \label{eq:lag_energies}
+%     \dfrac{\partial T}{\partial q} - \dfrac{\partial T}{\partial q}+ \dfrac{\partial W_{nc}}{\partial q} = \dfrac{d}{dt}\left(\dfrac{\partial T}{\partial \dot{q}}\right)\nonumber \\
+%     \dfrac{d}{dt}\left(\dfrac{\partial T}{\partial \dot{q}}\right) - \dfrac{\partial T}{\partial q} + \dfrac{\partial V}{\partial q} = Q 
+%   \end{gather}
+% \end{teo}
+% The virtual work, D'Alembert and Hamilton principles, are all essentially  equivalent  methods of obtaining the Lagrangian from the defined energies, and can be deduced from the previous equations, has well has Newton's second law. 
+
+% However it is interesting to notice the no explicit method of consistently obtaining the Lagrangian is present in the theory. Hence relating all the possibly desired energies of the system is the main task and the definition \ref{def_lagrangian_energy} might need to be adapted accordingly to system being studied. 
+
+

@@ -1,0 +1,72 @@
+\chapter{Mathematical Elements}
+
+\section{Calculus}
+\begin{teo}[\textbf{Gauss Theorem}]
+\begin{gather}
+    \label{gauss_theorem}
+\end{gather}
+\end{teo}
+
+\begin{teo}[\textbf{Stokes Theorem}]
+\begin{gather}
+    \label{stokes_theorem}
+\end{gather}
+\end{teo}
+
+\begin{teo}[\textbf{Reynolds Transport Theorem}]
+The Reynolds transport theorem is fundamental in expressing extensive properties $\boldsymbol{A}$, with a volumetric density of $\boldsymbol\alpha$, in generalized flow field with velocity $\textbf{v}$.
+\begin{equation}
+    \label{reynolds_theorem}
+\frac{d \int\limits_V  \boldsymbol\alpha dV}{dt}
+=\int\limits_V \frac{\partial \boldsymbol\alpha}{\partial t} dV +\int\limits_{S} \boldsymbol\alpha u_i n_i dS
+\end{equation}
+%=\int\limits_V \left( \frac{\partial \boldsymbol\alpha}{\partial t} + \frac{\partial \boldsymbol\alpha u_i}{\partial x_i} \right) dV
+\end{teo}
+
+
+
+
+\section{Variational Calculus}
+Variational principles are of the most important concepts and tools in the development of modern physics and its application extends from solid and fluid mechanics, gravitation, electromagnetism, optics, geodesy, to quantum mechanics and string theory.
+The variational principles are set upon variational calculus, which reflect upon entities such as functors, functionals and it's  variations, which are defined next, in a very basic way.
+\vspace{5mm}
+\begin{defi}[\textbf{High-Order Function or Functor}] 
+Its an operator $F[f]$ which has for its domain a function $f$ from a given set of functions i.e. $f \subset \mathcal{A} \subset \mathbb{R}^n$. The codomain of $F$ is also a function. Thus a functor $F:\mathcal{A} \rightarrow \mathbb{R}^m$, is called a function of functions that ``outputs'' another function.  
+\end{defi}
+\begin{defi}[\textbf{Functional}] 
+Corresponds to the case where the functor $F$ has a codomain witch is the real number set, i.e. $F:\mathcal{A} \rightarrow \mathbb{R}$, therefore a function of functions that ``output'' a real number 
+\end{defi}
+
+A common class of  functionals $I$ are the ones that are obtain has integrals of functors $F$ which makes them immediately comply with a real codomain requisite.
+\begin{gather}
+I[f(x)]=\int_{x_1}^{x_2}F[f(x)]dx
+\label{integral_variation}
+\end{gather}  
+In calculus the concepts of \textbf{differential} $d$ and \textbf{derivative} $\dfrac{d}{dx}$ are crucial for the determination of maximum and minimum of function, the analogy of these operations to variational calculus are called \textbf{variations} $\delta$ and \textbf{functional derivative} $\dfrac{\delta}{\delta f}$.
+Curiously enough the first variation has very similar rules to those of differential, so without proving them we show some of the most important rules in \eqref{variation_rules}
+\begin{subequations}
+\begin{align}
+\delta F[f]&=\dfrac{\partial F}{\partial f}\delta f\\
+\delta F[f,g]&=\dfrac{\partial F}{\partial f}\delta f + \dfrac{\partial F}{\partial g}\delta g\\
+\delta (\alpha I)&= \alpha \delta I\\
+\delta (I+J)&=\delta I + \delta J\\
+\delta (I\times J)&=J\delta I + I\delta J\\
+\delta \left( \dfrac{I}{J} \right)&=\dfrac{J\delta I - I\delta J}{(\delta J)^2}\\
+\end{align}\label{variation_rules}
+\end{subequations}
+Therefore the first variation of \eqref{integral_variation}, will be the following.
+\begin{gather}
+\delta I = \delta \int_{x_1}^{x_2}F[f(x)]dx= \int_{x_1}^{x_2} \delta F[f(x)]dx= \int_{x_1}^{x_2} \dfrac{\partial F}{\partial f}\delta f \; dx
+\end{gather}
+\begin{teo}[\textbf{Fundamental Theorem of Calculus of Variations}]
+\begin{gather}
+\int_{x_1}^{x_2} f(x)h(x) dx = 0 \Leftrightarrow f(x)=0 \quad \forall \; f,h \subset \mathcal{C}^k \; \land h(x_1)=h(x_2)=0 \land x \in [x_1,x_2]  
+\label{ftv}
+\end{gather}
+\end{teo}
+Variational calculus is not only important in the determination of physical laws, but is all applied in the numerical solutions of those sames laws, being the foundation of  methods like the Ritz and Galerkin and the finite element method. 
+
+
+
+
+

@@ -1,0 +1,27 @@
+\chapter{Computational Fluid Dynamics}
+\section{Classification of Partial Differential Equations}
+
+ The classification of PDE is inextricably connected to the method of the characteristics, therefore will present them both.
+
+ \section{Properties of Numerical Solution Methods}
+ In other to analyse the quality of numerical method, one has to inspect, in a summarized way, the following aspects:
+
+ \begin{itemize}
+ \item \textbf{Consistency}: The discretization of the PDE, introduces truncation errors, in space and time. For a scheme to be consistent it should not have truncation error when $\Delta x  \rightarrow 0$  and $\Delta t \rightarrow 0$. A consistent scheme is one that actually tries to solves the differential equation it was set to and not a different one.
+
+ \item \textbf{Stability}: A scheme is said to be stable when errors aren't amplified over the iterations, i.e. the are bounded. Stability is difficult to test but there are a couple of method used, for example the Von Neumann stability criterion.
+
+ \item \textbf{Convergence}: A numerical method is said to be convergent if the solution of the discretized equations tends to the exact solution of the differential equation as the grid spacing tends to zero. The \emph{Lax Equivalence Theorem} implies that for a linear well posed initial value problem, if consistency is verified then stability is the necessary and sufficient condition for convergence. 
+ For nonlinear problems stability and convergence are difficult to demonstrate, and sometimes the only alternative is to numerically test for a wide range of boundary conditions and grid layouts and spacings. 
+
+ \item \textbf{Conservation}:
+
+ \item \textbf{Boundedness}:
+
+ \item \textbf{Realizability}:
+
+ \item \textbf{Accuracy}
+
+ \end{itemize}
+
+

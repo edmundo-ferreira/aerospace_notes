@@ -1,0 +1,130 @@
+\chapter{Thermodynamics}
+Most of thermodynamics laws have actually been presented in the chapter \ref{fundamentals}, so here we present some aditional relationships and introduce the concept of thermodynamic potencials.
+\newpage
+
+\section{State Equations}
+the universal gas constant $\bar{R}$ is independent of the gas whit a value of:
+\begin{equation}
+\bar{R}=8314 \quad [j/(kg.mol.k)]
+\end{equation}
+Its recurrent to have the ratio of universal gas constant by a particular gas molecular weight, thus we define the gas constant by;
+
+\begin{equation}
+    R_{gas}=\frac{\bar{R}}{M_{gas}}
+\end{equation}
+
+however for air the subscript is not usually used, and from now on this will be our notation.
+\hl{insert table of gas constants}
+
+\subsection{Ideal Gas Equation}
+\begin{eqnarray}
+    p=\bar{R}nT\\
+    p=\rho R T
+\end{eqnarray}
+
+
+
+\section{Thermodynamic Potentials}
+We start by the definition of entalpy $H$, and entalpy per unit mass $h$, and stagation entalpy $h_0$: 
+\begin{eqnarray}
+   H &\equiv& E_I + pV \\  
+   h & = & e_I + \frac{p}{\rho}\\
+   H_0 &\equiv& H + E_K = H + m\frac{v_i v_i}{2}\\
+   h_0 &=& h + e_K = h + \frac{v_i v_i}{2}
+\end{eqnarray}
+Other potencial widley used are the Gibbs $G$ and Helmholtz $\Psi$ potentials and their corresponding per unit mass:
+\begin{eqnarray}
+   G &\equiv& H - TS \\  
+   g &=& h - Ts \\  
+   \Psi &\equiv& E_I- TS \\  
+   \psi &=& e_I- Ts 
+\end{eqnarray}
+In order to develop $p-\rho-T$ dependencies of the potential functions, we need the $Tds$ differential equation. It can obtained by solving the entropy differential equation \eqref{differential_entropy} without irreversabilities $s_{\text{irev}}=0$ to the heat term and using it to replace the heat term in the energy differential equation \eqref{differential_energy}. If we futher consider that only pressure forces are acting on the body i.e. no external forces and no viscous forces, and also that only internal energy is considered, i.e. negleting other forms of energy like kinetic or potencial gravitic. 
+\begin{eqnarray}
+    dE &=& TdS - \delta W \\  
+    dE_I &=& TdS - pdV\\  
+    de_I &=& Tds + \frac{p}{\rho^2}d\rho \\
+\end{eqnarray}
+Now writing differentials of the potencials, and using the previous equation to replace the $de_I$ terms
+\begin{eqnarray}
+   de_I &=& Tds + \frac{p}{\rho^2}d\rho \\
+   dh & = & Tds + \frac{dp}{\rho}\\
+   dg &=& \frac{dp}{\rho} - sdT \\  
+   d\psi &=& \frac{p}{\rho^2}d\rho - sdT 
+\end{eqnarray}
+From the definitions of differential this implies that the potential functions have the following dependencies
+\begin{eqnarray}
+   e_I  & = &   e_I(s,\rho)  \\
+   h    & = &   h(s,p)       \\
+   g    & = &   g(p,T)       \\
+   \psi & = &   \psi(\rho,T)
+\end{eqnarray}
+The famous Maxwell thermodynamic relations follow easily from the previous definitions.
+
+
+\subsection{Other Thermodynamic Relations}
+It is possible to define any thermodynamic property from 2 of the 3 intensive properties $p-\rho-T$
+Therefore will look at some of interresting relation that will apear if some properties are defined in terms of others.
+
+\subsubsection{Specific Heats}
+The specific heats can be calculated from internal energy as function of temperature and density $e_I(T,\rho)$, and the entalpy as function of temperature and pressure $h(T,p)$     
+\begin{eqnarray}
+   de_I & = & \left( \frac{\partial e_I }{\partial T} \right)_{\rho} dT + \left( \frac{\partial e_I }{\partial \rho} \right)_{T} d\rho\\
+   c_v(T,\rho) & \equiv & \left( \frac{\partial e_I }{\partial T} \right)_{\rho} \qquad \text{(specific heat at constant volume)} \\
+   dh & = & \left( \frac{\partial h}{\partial T} \right)_{p} dT + \left( \frac{\partial h}{\partial p} \right)_{T} dp\\
+   c_p(T,p) & \equiv & \left( \frac{\partial h}{\partial T} \right)_{p}  \qquad \text{(specific heat at constant pressure)} 
+\end{eqnarray}
+The ratio of specific heats is of extreme importance
+\begin{eqnarray}
+\gamma \equiv \frac{c_p}{c_v}
+\end{eqnarray}
+
+
+However if the internal energy and entalpy are functions of temperature alone, in this situation the fuild is called thermaly perfect   
+\begin{eqnarray}
+   c_v(T) & = & \frac{d e_I }{d T} \\ 
+   c_p(T) & = & \frac{d h }{d T} 
+\end{eqnarray}
+And if futher considered constat the substance is calorically perfect
+\begin{eqnarray}
+   c_v(T) & = & c_v\\ 
+   c_p(T) & = & c_p
+\end{eqnarray}
+
+
+\subsubsection{Speed of Sound}
+If pressure is defined as function of density and entropy $p(\rho,s)$, and futher consider it isentropic 
+\begin{eqnarray}
+   dp & = & \left( \frac{\partial p }{\partial \rho} \right)_s d\rho  + \left( \frac{\partial p }{\partial s} \right)_{\rho} ds\\
+   \frac{dp}{d\rho} & = & \left( \frac{\partial p }{\partial \rho} \right)_s \\
+   a^2 & \equiv & \frac{dp}{d\rho} = \left( \frac{\partial p }{\partial \rho} \right)_s \qquad \text{(speed of sound)} \\
+\end{eqnarray}
+
+
+
+\subsubsection{Volume expansivity, Isothermal and Isentropic Compressibility}
+If density is defined as a function of temperature and pressure $\rho(T,p)$
+\begin{eqnarray}
+   d\rho & = & \left( \frac{\partial \rho }{\partial T} \right)_p dT  + \left( \frac{\partial \rho }{\partial p} \right)_{T} dp\\
+   \beta & \equiv & - \frac{1}{\rho} \left( \frac{\partial \rho }{\partial T} \right)_p \qquad \text{(volume expansivity)}\\ 
+   \kappa & \equiv &  \frac{1}{\rho} \left( \frac{\partial \rho }{\partial p} \right)_{T}  \qquad \text{(isothermal compressibility)} 
+\end{eqnarray}
+
+
+
+
+
+\subsection{Isentropic Relations}
+relations are obtained using calorific ideal gas properties using and also a process that is reversible and adiabatic, i.e. isentropic.
+
+\begin{equation}
+\frac{T_1}{T_2}=\left(\frac{\rho_1}{\rho_2} \right)^\gamma=\left( \frac{p
+_1}{p_2} \right)^\frac{\gamma}{\gamma-1}
+\end{equation}
+
+
+
+
+
+
+

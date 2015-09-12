@@ -1,0 +1,166 @@
+\chapter{Fluid Mechanics}
+\newpage
+\newpage
+\section{Navier-Stokes Flow}
+
+\newpage
+\section{Euler Flow}
+The Euler flow can be taken directly from the fundamental equations of chapter \ref{fundamentals}, however they are derivable from the Navier-Stokes flow equation by assuming that there are no viscous forces present. 
+\subsubsection{Mass:}
+\begin{eqnarray}        
+    \frac{\partial \rho}{\partial t} +  \frac{\partial \rho v_j}{\partial x_j} &=& 0 
+\end{eqnarray}        
+
+\subsubsection{Momentum:}
+\begin{eqnarray}        
+    \frac{\partial \rho v_i}{\partial t} +  \frac{\partial \rho v_i v_j}{\partial x_j} &=& f_i - \frac{\partial p}{\partial x_i} 
+\end{eqnarray}        
+
+\subsubsection{Energy:}
+\begin{eqnarray}        
+\frac{\partial \rho e_u+ \rho\frac{v_i v_i}{2}}{\partial t} +  \frac{\partial (\rho e_u + \rho\frac{v_i v_i}{2} v_j)}{\partial x_j} &=&  \dot{q} + \frac{\partial} {\partial x_j} \left( k\frac{\partial T}{d x_j} \right) - f_i v_i  + \frac{\partial  p v_j }{\partial x_j} 
+\end{eqnarray}        
+
+
+\subsection{Steady 1D Adiabatic Inviscid Compressible Flow}
+Instantiating the Euler flow equations for a steady, unidimensional and adiabatic produces the following simplified equations. 
+\hl{talk about what means 1D vs Quasi 1D}
+\subsubsection{Mass:}
+ \begin{eqnarray}        
+    \int\limits_A \rho v_j n_j dA &=& 0 \\ 
+    \rho_1 v_1  &=&\rho_2 v_2 
+\end{eqnarray}        
+
+     
+\subsubsection{Momentum:}
+\begin{eqnarray}        
+    \int\limits_A \rho v_i v_j n_j dA &=& \int\limits_A - p n_i dA \\ 
+    \rho_1 v^2_1 + p_1&=&  \rho_2 v^2_2 + p_2
+\end{eqnarray}        
+
+\subsubsection{Energy:}
+\begin{eqnarray}        
+     \int\limits_A (\rho e_I + \rho\frac{v_i v_i}{2}) v_j n_j dA &=& \int\limits_A - p v_j n_j dA \\ 
+     \rho_1 e_{I_1} + \rho_1\frac{v^2_1 }{2} v_1  + p_1 v_1 &=& \rho_2 e_{I_2} + \rho_2\frac{v^2_2 }{2} v_2 +  p_2 v_2  
+\end{eqnarray}        
+
+%\subsection{Normal Shock Waves}
+%the mach numbers after $M_2$ and before $M_1$, are related between themselves by:
+%\begin{equation}
+%M_2^2=\frac{1+ \frac{\gamma -1}{2}M_1^2}{\gamma M_1^2 - \frac{\gamma -1}{2}}
+%\end{equation}
+%While the pressure, density, velocity, temperature and entalpy ratios across the normal shock are given by:
+%\begin{eqnarray}
+%\frac{p_2}{p_1}=1+\frac{2\gamma}{\gamma +1} \left(M_1^2-1 \right)\\
+%\frac{\rho_2}{\rho_1}=\frac{u_1}{u_2}=\frac{\left(\gamma+1 \right) M_1^2}{2+\left(\gamma -1 \right) M_1^2}\\
+%\frac{T_2}{T_1}=\frac{p_2}{p_1}=\frac{\rho_1}{\rho_2}=\frac{h_2}{h_1}
+%\end{eqnarray}
+%This resumes the fundamental equations for the calculation of flows properties across normal shock waves.
+%\subsection{Oblique Shock Waves}
+
+
+%\subsection{Prandtl-Meyer Expansion Waves}
+
+%The expansion waves are the opposite of shock waves, hence trough an expansion wave the Mach number increases and pressure, density and temperature decreases.
+
+%The expansion fan is itself a continuous expansion region, composed of an infinite number of Mach waves, bounded upstream and downstream.
+%The all expansion is composed of infinitesimal Mach waves we can consider the process isentropic, all the way through the wave, and therefore the stagnations relations are applicable.
+
+
+
+%\begin{equation}
+%\nu(M)=\sqrt{\frac{\gamma +1}{\gamma-1}} \tan^{-1}\left( \sqrt{\frac{\gamma -1}{\gamma+1}(M^2-1)} \right) -\tan^{-1} \left( \sqrt{M^2-1}\right)
+%\end{equation}
+%\subsection{Shock Interaction}
+
+
+\newpage
+\subsection{Steady 1D Adiabatic Viscous Compressible Flow}
+
+\newpage
+\subsection{Steady 1D Inviscid Compressible Flow}
+
+
+
+
+\newpage
+\section{Potential Flow}
+The potencial flow is definitely very important since, when futher linearized, provides one of the only analytical methods of determining aerodynamic properties in airfoils and wing for either subsonic and supersonic.
+We start by presenting flow equation, that are obtainable from the Euler flow by assuming no volumic forces $\vec{f}=0$, adiabatic i.e. no heat transfers. 
+
+The flow gains it's name from the fact that the velocity field is irrotational, therefore it can be expressed as gradient of a pontential function $\Phi$.
+\begin{eqnarray}        
+    \vec{\nabla}\times \vec{v} = 0   \quad \rightarrow \quad  \vec{v} = \vec{\nabbla} \Phi  
+\end{eqnarray}        
+
+\hl{mention kelvin theorem}
+
+\subsubsection{Mass:}
+\begin{eqnarray}        
+    \frac{\partial \rho}{\partial t} +  \frac{\partial \rho v_j}{\partial x_j} &=& 0 
+\end{eqnarray}        
+
+\subsubsection{Momentum:}
+\begin{eqnarray}        
+    \frac{\partial \rho v_i}{\partial t} +  \frac{\partial \rho v_i v_j}{\partial x_j} &=& - \frac{\partial p}{\partial x_i} 
+\end{eqnarray}        
+
+\subsubsection{Energy:}
+\begin{eqnarray}        
+\end{eqnarray}        
+
+
+
+
+\subsection{Linearized Potential Flow}
+
+
+
+
+
+
+%\newpage
+%\section{Aerodynamic Coefficients}
+%\subsection{Pressure Coefficients}
+%The pressure coefficient is the pressure difference from the local to the free stream, normalized for the dynamic pressure of the free stream.
+%\begin{equation}
+%C_p\equiv \frac{p - p_\infty}{\frac{1}{2} \rho_\infty U_\infty^2}
+%\end{equation}
+
+%Using the definition of the speed of sound, in conjunction with a isentropic process.
+
+%\begin{equation}
+%a^2=\left( \frac{\partial p}{\partial \rho} \right)_s = \gamma \frac{p}{\rho}
+%\end{equation}
+
+%An by the definition of number of Mach.
+%\begin{equation}
+%M \equiv \frac{U}{a}
+%\end{equation} 
+
+%So we can rewrite the pressure coefficient for incompressible flows.
+
+%\begin{equation}
+%C_p=\frac{p - p_\infty}{\frac{1}{2}\gamma p_\infty M_\infty^2}=\frac{1}{\frac{1}{2}\gamma M_\infty^2}\left(\frac{p}{p_\infty} -1 \right)
+%\end{equation}
+
+
+%Using the isentropic relation relative to the estagnation point.
+
+%\begin{equation}
+%\frac{p_o}{p}=\left( 1 + \frac{\gamma -1}{2}M^2 \right)^{\frac{\gamma-1}{\gamma}}
+%\end{equation}
+
+%Keeping in mind that:
+
+%\begin{equation}
+%\frac{p}{p_\infty}=\frac{\frac{p_o}{p_\infty}}{\frac{p_o}{p}}
+%\end{equation}
+
+%So coefficient of pressure in terms of the local Mach number can be expressed by:
+
+%\begin{equation}
+%C_p=\frac{1}{\frac{1}{2}\gamma M_\infty^2} \left[ \left( \frac{1 + \frac{\gamma -1}{2}M_\infty^2}{1 + \frac{\gamma -1}{2}M^2}\right)^{\frac{\gamma-1}{\gamma}} -1 \right]
+%\end{equation}
+
+
