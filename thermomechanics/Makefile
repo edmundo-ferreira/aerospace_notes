@@ -1,7 +1,7 @@
 all: base clean
 
 base:
-	lualatex Aerospace_Course_Classical_Mechanics.tex
+	lualatex Aerospace_Notes_Thermomechanics.tex
 
 clean:
 	(rm -rf *.toc *.aux *.bbl *.blg *.log *.out *.fls *.fdb_latexmk)
