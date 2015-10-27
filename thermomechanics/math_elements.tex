@@ -17,15 +17,17 @@
 The Reynolds transport theorem is fundamental in expressing extensive properties $\boldsymbol{A}$, with a volumetric density of $\boldsymbol\alpha$, in generalized flow field with velocity $\textbf{v}$.
 \begin{equation}
     \label{reynolds_theorem}
-\frac{d \int\limits_V  \boldsymbol\alpha dV}{dt}
-=\int\limits_V \frac{\partial \boldsymbol\alpha}{\partial t} dV +\int\limits_{S} \boldsymbol\alpha u_i n_i dS
+\frac{d}{dt} \int\limits_{\mathcal{V}}  \boldsymbol\alpha dV
+=\int\limits_{\mathcal{V}} \frac{\partial \boldsymbol\alpha}{\partial t} dV
++\int\limits_{\mathcal{S}} \boldsymbol\alpha u_j n_j dS
 \end{equation}
-%=\int\limits_V \left( \frac{\partial \boldsymbol\alpha}{\partial t} + \frac{\partial \boldsymbol\alpha u_i}{\partial x_i} \right) dV
+%=\int\limits_V \left( \frac{\partial \boldsymbol\alpha}{\partial t} +
+% \frac{\partial \boldsymbol\alpha u_i}{\partial x_i} \right) dV
 \end{teo}
 
 
 
-
+\newpage
 \section{Variational Calculus}
 Variational principles are of the most important concepts and tools in the development of modern physics and its application extends from solid and fluid mechanics, gravitation, electromagnetism, optics, geodesy, to quantum mechanics and string theory.
 The variational principles are set upon variational calculus, which reflect upon entities such as functors, functionals and it's  variations, which are defined next, in a very basic way.

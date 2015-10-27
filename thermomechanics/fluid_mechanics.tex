@@ -1,84 +1,180 @@
 \chapter{Fluid Mechanics}
-\newpage
+
+The motion of a fluid is completely described by the conservation laws for the three basic properties: mass, momentum and energy. 
+Indeed,how complicated the detailed evolution of a system might be, not only are the basic
+properties mass, momentum and energy conserved during the whole process at all
+times but more than that, these three conditions
+completely determine the behavior of the system without any additional dynamical
+law.
+This is a very remarkable property, indeed. The only additional information
+concerns the specification of the nature of the fluid (e.g. incompressible fluid, perfect
+gas, condensable fluid, viscoelastic material, etc.).
+A fluid flow is considered as known if, at any instant of time, the velocity field
+and a minimum number of static properties are known at every point. The number of
+static properties to be known is dependent on the nature of the fluid. This number will
+be equal to one for an isothermal incompressible fluid (e.g. the pressure), two (e.g.
+pressure and density) for a perfect gas or any real compressible fluid in thermodynamic
+equilibrium.
+
+We will consider that a separate analysis has provided the necessary knowledge
+enabling to define the nature of the fluid. This is obtained from the study of the behavior
+of the various types of continua and the corresponding information is summarized
+in the constitutive laws and in some other parameters such as viscosity and heat
+conduction coefficients. This study also provides the information on the nature and
+properties of the internal forces acting on the fluid since, by definition, a deformable
+continuum such as a fluid, requires the existence of internal forces connected to the
+nature of the constitutive law.
+Besides, separate studies are needed in order to distinguish the various external
+forces that influence the motion of the system in addition to the internal ones. These
+external forces could be, e.g. gravity, buoyancy, Coriolis and centrifugal forces in
+rotating systems, electromagnetic forces in electrical conducting fluids.
+
+Let us now move to the derivation of the basic fluid dynamic equations, by
+applying the general expressions derived in the previous chapter, to the specific quantities
+mass, momentum and energy.
+The equation for mass conservation is also called the continuity equation, while the
+momentum conservation law is the expression of the generalized Newton law, defining
+the equation of motion of a fluid. The energy conservation law is also referred to as
+the expression of the first principle of Thermodynamics.
+
 \newpage
 \section{Navier-Stokes Flow}
 
+\subsection*{Mass:}
+
+\subsection*{Momentum:}
+
+\subsection*{Energy:}
+
+
+
+
+
+
+
+\newpage
+\section{Thin Shear Layers Flow}
+
+\subsection{Boundary Layer Flow}
+
+
+
+
+
+
+
+
 \newpage
 \section{Euler Flow}
-The Euler flow can be taken directly from the fundamental equations of chapter \ref{fundamentals}, however they are derivable from the Navier-Stokes flow equation by assuming that there are no viscous forces present. 
-\subsubsection{Mass:}
+The Euler flow can be taken directly from the fundamental equations of chapter \ref{fundamentals}, however they are derivable from the Navier-Stokes flow equation by assuming that there are no viscous/shear forces present i.e. $\tau_{ij}=0$. 
+\subsection*{Mass:}
 \begin{eqnarray}        
     \frac{\partial \rho}{\partial t} +  \frac{\partial \rho v_j}{\partial x_j} &=& 0 
 \end{eqnarray}        
 
-\subsubsection{Momentum:}
+\subsection*{Momentum:}
 \begin{eqnarray}        
-    \frac{\partial \rho v_i}{\partial t} +  \frac{\partial \rho v_i v_j}{\partial x_j} &=& f_i - \frac{\partial p}{\partial x_i} 
+    \frac{\partial \rho v_i}{\partial t} +  \frac{\partial \rho v_i v_j}{\partial x_j} &=& \rho f_i - \frac{\partial p}{\partial x_i} 
 \end{eqnarray}        
 
-\subsubsection{Energy:}
+\subsection*{Energy:}
 \begin{eqnarray}        
-\frac{\partial \rho e_u+ \rho\frac{v_i v_i}{2}}{\partial t} +  \frac{\partial (\rho e_u + \rho\frac{v_i v_i}{2} v_j)}{\partial x_j} &=&  \dot{q} + \frac{\partial} {\partial x_j} \left( k\frac{\partial T}{d x_j} \right) - f_i v_i  + \frac{\partial  p v_j }{\partial x_j} 
+\frac{\partial \rho e_u+ \rho\frac{v_i v_i}{2}}{\partial t} +  \frac{\partial (\rho e_u + \rho\frac{v_i v_i}{2} v_j)}{\partial x_j} &=&  \dot{q} + \frac{\partial} {\partial x_j} \left( k\frac{\partial T}{d x_j} \right) - \rho f_i v_i  + \frac{\partial  p v_j }{\partial x_j} 
 \end{eqnarray}        
 
 
-\subsection{Steady 1D Adiabatic Inviscid Compressible Flow}
-Instantiating the Euler flow equations for a steady, unidimensional and adiabatic produces the following simplified equations. 
+\subsection{Steady Quasi-1D Adiabatic Euler Flow}
+
+
+
+
+\subsection{Steady 1D Adiabatic Euler Flow}
+\label{1d_adiabatic_inviscid}
+An case of extreme engineering importance is the Euler flow equations for a steady, unidimensional and adiabatic produces the following simplified equations. 
+This situation can be used to explain properties of flows in supersonic conditions, and their shock waves.
 \hl{talk about what means 1D vs Quasi 1D}
-\subsubsection{Mass:}
+\subsubsection*{Mass:}
  \begin{eqnarray}        
-    \int\limits_A \rho v_j n_j dA &=& 0 \\ 
+    \int\limits_{\mathcal{A}} \rho v_j n_j dA &=& 0 \\ 
     \rho_1 v_1  &=&\rho_2 v_2 
 \end{eqnarray}        
 
      
-\subsubsection{Momentum:}
+\subsubsection*{Momentum:}
 \begin{eqnarray}        
-    \int\limits_A \rho v_i v_j n_j dA &=& \int\limits_A - p n_i dA \\ 
+    \int\limits_{\mathcal{A}} \rho v_i v_j n_j dA &=& \int\limits_{\mathcal{A}} - p n_i dA \\ 
     \rho_1 v^2_1 + p_1&=&  \rho_2 v^2_2 + p_2
 \end{eqnarray}        
 
-\subsubsection{Energy:}
+\subsubsection*{Energy:}
 \begin{eqnarray}        
-     \int\limits_A (\rho e_I + \rho\frac{v_i v_i}{2}) v_j n_j dA &=& \int\limits_A - p v_j n_j dA \\ 
+     \int\limits_{\mathcal{A}} (\rho e_I + \rho\frac{v_i v_i}{2}) v_j n_j dA &=& \int\limits_{\mathcal{A}} - p v_j n_j dA \\ 
      \rho_1 e_{I_1} + \rho_1\frac{v^2_1 }{2} v_1  + p_1 v_1 &=& \rho_2 e_{I_2} + \rho_2\frac{v^2_2 }{2} v_2 +  p_2 v_2  
 \end{eqnarray}        
 
-%\subsection{Normal Shock Waves}
-%the mach numbers after $M_2$ and before $M_1$, are related between themselves by:
-%\begin{equation}
-%M_2^2=\frac{1+ \frac{\gamma -1}{2}M_1^2}{\gamma M_1^2 - \frac{\gamma -1}{2}}
-%\end{equation}
-%While the pressure, density, velocity, temperature and entalpy ratios across the normal shock are given by:
-%\begin{eqnarray}
-%\frac{p_2}{p_1}=1+\frac{2\gamma}{\gamma +1} \left(M_1^2-1 \right)\\
-%\frac{\rho_2}{\rho_1}=\frac{u_1}{u_2}=\frac{\left(\gamma+1 \right) M_1^2}{2+\left(\gamma -1 \right) M_1^2}\\
-%\frac{T_2}{T_1}=\frac{p_2}{p_1}=\frac{\rho_1}{\rho_2}=\frac{h_2}{h_1}
-%\end{eqnarray}
-%This resumes the fundamental equations for the calculation of flows properties across normal shock waves.
-%\subsection{Oblique Shock Waves}
+\subsubsection{Normal Shock Waves}
+the mach numbers after $M_2$ and before $M_1$, are related between themselves by:
+\begin{equation}
+M_2^2=\frac{1+ \frac{\gamma -1}{2}M_1^2}{\gamma M_1^2 - \frac{\gamma -1}{2}}
+\end{equation}
+While the pressure, density, velocity, temperature and entalpy ratios across the normal shock are given by:
+\begin{eqnarray}
+\frac{p_2}{p_1}=1+\frac{2\gamma}{\gamma +1} \left(M_1^2-1 \right)\\
+\frac{\rho_2}{\rho_1}=\frac{u_1}{u_2}=\frac{\left(\gamma+1 \right) M_1^2}{2+\left(\gamma -1 \right) M_1^2}\\
+\frac{T_2}{T_1}=\frac{p_2}{p_1}=\frac{\rho_1}{\rho_2}=\frac{h_2}{h_1}
+\end{eqnarray}
+This resumes the fundamental equations for the calculation of flows properties across normal shock waves.
+\subsubsection{Oblique Shock Waves}
 
 
-%\subsection{Prandtl-Meyer Expansion Waves}
+\subsubsection{Prandtl-Meyer Expansion Waves}
 
-%The expansion waves are the opposite of shock waves, hence trough an expansion wave the Mach number increases and pressure, density and temperature decreases.
+The expansion waves are the opposite of shock waves, hence trough an expansion wave the Mach number increases and pressure, density and temperature decreases.
 
-%The expansion fan is itself a continuous expansion region, composed of an infinite number of Mach waves, bounded upstream and downstream.
-%The all expansion is composed of infinitesimal Mach waves we can consider the process isentropic, all the way through the wave, and therefore the stagnations relations are applicable.
-
-
-
-%\begin{equation}
-%\nu(M)=\sqrt{\frac{\gamma +1}{\gamma-1}} \tan^{-1}\left( \sqrt{\frac{\gamma -1}{\gamma+1}(M^2-1)} \right) -\tan^{-1} \left( \sqrt{M^2-1}\right)
-%\end{equation}
-%\subsection{Shock Interaction}
+The expansion fan is itself a continuous expansion region, composed of an infinite number of Mach waves, bounded upstream and downstream.
+The all expansion is composed of infinitesimal Mach waves we can consider the process isentropic, all the way through the wave, and therefore the stagnations relations are applicable.
 
 
-\newpage
-\subsection{Steady 1D Adiabatic Viscous Compressible Flow}
 
-\newpage
-\subsection{Steady 1D Inviscid Compressible Flow}
+\begin{equation}
+\nu(M)=\sqrt{\frac{\gamma +1}{\gamma-1}} \tan^{-1}\left( \sqrt{\frac{\gamma -1}{\gamma+1}(M^2-1)} \right) -\tan^{-1} \left( \sqrt{M^2-1}\right)
+\end{equation}
+\subsubsection{Interaction of Shock Waves}
+
+
+
+\newpage	
+\subsection{Fanno Flow}
+Adiabatic flow through a constant area duct where the effect of friction is considered is also know as Fanno flow.
+
+\newpage	
+\subsection{Steady 1D Non-Adiabatic Euler Flow (Rayleigh Flow)} 
+Non-adiabatic flow through a constant area duct where the effect of heat addition or rejection is also know as the
+Rayleigh. The only significant difference relative to the 1D adiabatic Inviscid Flow of \ref{1d_adiabatic_inviscid} is the addition of heat to the energy equation.
+\subsubsection*{Mass:}
+ \begin{eqnarray}        
+    \int\limits_{\mathcal{A}} \rho v_j n_j dA &=& 0 \\ 
+    \rho_1 v_1  &=&\rho_2 v_2 
+\end{eqnarray}        
+
+     
+\subsubsection*{Momentum:}
+\begin{eqnarray}        
+    \int\limits_{\mathcal{A}} \rho v_i v_j n_j dA &=& \int\limits_{\mathcal{A}} - p n_i dA \\ 
+    \rho_1 v^2_1 + p_1&=&  \rho_2 v^2_2 + p_2
+\end{eqnarray}        
+
+\subsubsection*{Energy:}
+\begin{eqnarray}        
+     \int\limits_{\mathcal{A}} (\rho e_I + \rho\frac{v_i v_i}{2}) v_j n_j dA &=&  \int\limits_{\mathcal{V}} \dot{q} dV + \int\limits_{\mathcal{A}} - p v_j n_j dA \\ 
+     \rho_1 e_{I_1} + \rho_1\frac{v^2_1 }{2} v_1  + p_1 v_1 &=& q + \rho_2 e_{I_2} + \rho_2\frac{v^2_2 }{2} v_2 +  p_2 v_2  
+\end{eqnarray}        
+
+Solving the energy equation the heat per unit mass.
+\begin{eqnarray} 
+     \rho_1 e_{I_1} + \rho_1\frac{v^2_1 }{2} v_1  + p_1 v_1 &=& q + \rho_2 e_{I_2} + \rho_2\frac{v^2_2 }{2} v_2 +  p_2 v_2  
+\end{eqnarray}
+
 
 
 
@@ -90,29 +186,29 @@ We start by presenting flow equation, that are obtainable from the Euler flow by
 
 The flow gains it's name from the fact that the velocity field is irrotational, therefore it can be expressed as gradient of a pontential function $\Phi$.
 \begin{eqnarray}        
-    \vec{\nabla}\times \vec{v} = 0   \quad \rightarrow \quad  \vec{v} = \vec{\nabbla} \Phi  
+    \vec{\nabla}\times \vec{v} = 0   \quad \rightarrow \quad  \vec{v}=\vec{\nabla} \Phi
 \end{eqnarray}        
 
 \hl{mention kelvin theorem}
-
-\subsubsection{Mass:}
+\subsection*{Mass:}
 \begin{eqnarray}        
     \frac{\partial \rho}{\partial t} +  \frac{\partial \rho v_j}{\partial x_j} &=& 0 
 \end{eqnarray}        
 
-\subsubsection{Momentum:}
+\subsection*{Momentum:}
 \begin{eqnarray}        
     \frac{\partial \rho v_i}{\partial t} +  \frac{\partial \rho v_i v_j}{\partial x_j} &=& - \frac{\partial p}{\partial x_i} 
 \end{eqnarray}        
 
-\subsubsection{Energy:}
+\subsection*{Energy:}
 \begin{eqnarray}        
 \end{eqnarray}        
 
 
-
-
 \subsection{Linearized Potential Flow}
+
+
+
 
 
 

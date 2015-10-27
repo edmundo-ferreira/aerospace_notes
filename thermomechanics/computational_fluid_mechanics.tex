@@ -1,7 +1,31 @@
 \chapter{Computational Fluid Dynamics}
-\section{Classification of Partial Differential Equations}
 
+
+
+
+\section{Classification of Partial Differential Equations}
  The classification of PDE is inextricably connected to the method of the characteristics, therefore will present them both.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  \section{Properties of Numerical Solution Methods}
  In other to analyse the quality of numerical method, one has to inspect, in a summarized way, the following aspects:
@@ -14,13 +38,110 @@
  \item \textbf{Convergence}: A numerical method is said to be convergent if the solution of the discretized equations tends to the exact solution of the differential equation as the grid spacing tends to zero. The \emph{Lax Equivalence Theorem} implies that for a linear well posed initial value problem, if consistency is verified then stability is the necessary and sufficient condition for convergence. 
  For nonlinear problems stability and convergence are difficult to demonstrate, and sometimes the only alternative is to numerically test for a wide range of boundary conditions and grid layouts and spacings. 
 
- \item \textbf{Conservation}:
+ \item \textbf{Conservation}: Since the equations to be solved are conservation laws, the numerical scheme
+should also - on both a local and a global basis - respect these laws. This
+means that, a t steady state and in the absence of sources, the amount of a
+conserved quantity leaving a closed volume is equal to the amount entering
+that volume. If the strong conservation form of equations and a finite volume
+method are used, this is guaranteed for each individual control volume and
+for the solution domain as a whole. Other discretization methods can be made
+conservative if care is taken in the choice of approximations. The treatment
+of sources or sink terms should be consistent so that the total source or sink
+in the domain is equal to the net flux of the conserved quantity through the
+boundaries.
+This is an important property of the solution method, since it imposes a
+constraint on the solution error. If the conservation of mass, momentum and
+energy are insured, the error can only improperly distribute these quantities
+over the solution domain. Non-conservative schemes can produce artificial
+sources and sinks, changing the balance both locally and globally. However,
+non-conservative schemes can be consistent and stable and therefore lead
+to correct solutions in the limit of very fine grids. The errors due to non-
+conservation are in most cases appreciable only on relatively coarse grids.
+The problem is that it is difficult to know on which grid are these errors
+small enough. Conservative schemes are therefore preferred.
 
- \item \textbf{Boundedness}:
+ \item \textbf{Boundedness}: Numerical solutions should lie within proper bounds. Physically non-negative
+quantities (like density, kinetic energy of turbulence) must always be positive;
+other quantities, such as concentration, must lie between 0\% and 100\%. In
+the absence of sources, some equations (e.g. the heat equation for the tem-
+perature when no heat sources are present) require that the minimum and
+maximum values of the variable be found on the boundaries of the domain.
+These conditions should be inherited by the numerical approximation.
+Boundedness is difficult to guarantee. We shall show later on that only
+some first order schemes guarantee this property. All higher-order schemes
+can produce unbounded solutions; fortunately, this usually happens only on
+grids that are too coarse, so a solution with undershoots and overshoots
+is usually an indication that the errors in the solution are large and the
+grid needs some refinement (at least locally). The problem is that schemes
+prone to producing unbounded solutions may have stability and convergence
+problems. These methods should be avoided, if possible.
 
- \item \textbf{Realizability}:
+ \item \textbf{Realizability}: Models of phenomena which are too complex to treat directly (for example,
+turbulence, combustion, or multiphase flow) should be designed to guarantee
+physically realistic solutions. This is not a numerical issue per se but models
+that are not realizable may result in unphysical solutions or cause numerical
+methods to diverge. We shall not deal with these issues in this book, but if
+one wants to implement a model in a CFD code, one has t o be careful about
+this property.
 
- \item \textbf{Accuracy}
+ \item \textbf{Accuracy}: Numerical solutions of fluid flow and heat transfer problems are only ap-
+proximate solutions. In addition to the errors that might be introduced in
+the course of the development of the solution algorithm, in programming or
+setting up the boundary conditions, numerical solutions always include three
+kinds of systematic errors:
+
+\textbf{Modeling errors}: which are defined as the difference between the actual
+flow and the exact solution of the mathematical model;
+
+\textbf{Discretization errors}: defined as the difference between the exact solution
+of the conservation equations and the exact solution of the algebraic system
+of equations obtained by discretizing these equations, and
+
+\textbf{Iteration errors}: defined as the difference between the iterative and exact
+solutions of the algebraic equations systems.
+
+Iteration errors are often called convergence errors (which was the case in
+the earlier editions of this book). However, the term convergence is used
+not only in conjunction with error reduction in iterative solution methods,
+but is also (quite appropriately) often associated with the convergence of
+numerical solutions towards a grid-independent solution, in which case it is
+closely linked t o discretization error. To avoid confusion, we shall adhere t o
+the above definition of errors and, when discussing issues of convergence,
+always indicate which type of convergence we are talking about.
+It is important to be aware of the existence of these errors, and even more
+to try t o distinguish one from another. Various errors may cancel each other,
+so that sometimes a solution obtained on a coarse grid may agree better with
+the experiment than a solution on a finer grid - which, by definition, should
+be more accurate.
+Modeling errors depend on the assumptions made in deriving the trans-
+port equations for the variables. They may be considered negligible when
+laminar flows are investigated, since the Navier-Stokes equations represent
+a sufficiently accurate model of the flow. However, for turbulent flows, two-
+phase flows, combustion etc., the modeling errors may be very large - the
+exact solution of the model equations may be qualitatively wrong. Modeling
+errors are also introduced by simplifying the geometry of the solution do-
+main, by simplifying boundary conditions etc. These errors are not known a
+priori; they can only be evaluated by comparing solutions in which the dis-
+cretization and convergence errors are negligible with accurate experimental
+data or with data obtained by more accurate models ( e g data from direct simulation of turbulence, etc.). 
+It is essential to control and estimate the convergence and discretization errors before the models of physical phenomena
+(like turbulence models) can be judged.
+We mentioned above that discretization approximations introduce errors
+which decrease as the grid is refined, and that the order of the approximation
+is a measure of accuracy. However, on a given grid, methods of the same order
+may produce solution errors which differ by as much as an order of magnitude.
+This is because the order only tells us the rate at which the error decreases
+as the mesh spacing is reduced - it gives no information about the error on a
+single grid. We shall show how discretization errors can be estimated in the
+next chapter.
+Errors due to iterative solution and round-off are easier to control; we
+shall see how this can be done in Chap. 5 , where iterative solution methods
+are introduced.
+There are many solution schemes and the developer of a CFD code may
+have a difficult time deciding which one to adopt. The ultimate goal is to
+obtain desired accuracy with least effort, or the maximum accuracy with the
+available resources. Each time we describe a particular scheme we shall point
+out its advantages or disadvantages with respect to these criteria.
 
  \end{itemize}
 
