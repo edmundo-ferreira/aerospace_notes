@@ -2,9 +2,35 @@
 
 
 
+\section{Mathematical and Physical Nature of Flow Equations}
+In the computational fluid dynamics, the mechanism to numericaly solve a
+specific flow equation cannot be separated from the mathematical and
+physical nature of the base equation. 
+Concept like convection and difusion play a crucial role in choosing appropriate
+numerical schemes. These concept are also intrinsincly linked to the
+mathematical structure of the equation, for exmaple, diffusive fluxes appear through second orderderivative terms in space, as a consequence of the generalized Fick law, equation which expresses 
+the essence of the molecular diffusion phenomenon as a tendency to smooth out gradients. 
+The convective fluxes, on the other hand, appear as first order derivative terms in space and 
+express the transport properties of a flow system.
 
-\section{Classification of Partial Differential Equations}
- The classification of PDE is inextricably connected to the method of the characteristics, therefore will present them both.
+For simplicity we start by studing them in the 1D Convection-Difusion equation then try to apply this concepts 
+to more complex partial differential equations and lastly systems of these equations.
+
+
+\subsection{1D Convection-Difusion Equation}
+The one dimensional convection-difusion equation is as follows:
+\begin{eqnarray}
+	\frac{\partial f}{\partial t} + a(f) \frac{\partial f}{\partial x} = \alpha \frac{\partial^2 f}{\partial x^2}
+\end{eqnarray}
+
+The convection term is represent a transport of quanty $f$ in space and is therfore represented by first dirivative in space $\frac{\partial f}{\partial x}$ the convection velocity is the nonlinear term $a(f)$
+
+
+
+
+\subsection{Classification of Partial Differential Equations}
+The classification of PDE is inextricably connected to the method of the characteristics, 
+therefore will present them both.
 
 
 
@@ -143,6 +169,6 @@ obtain desired accuracy with least effort, or the maximum accuracy with the
 available resources. Each time we describe a particular scheme we shall point
 out its advantages or disadvantages with respect to these criteria.
 
- \end{itemize}
+\end{itemize}
 
 
