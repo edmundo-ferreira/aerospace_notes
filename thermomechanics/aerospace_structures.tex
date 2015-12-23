@@ -1,3 +1,173 @@
+\chapter{Aerospace Vehicle Dynamics}
+
+\section{Aerospace Reference Frames}
+\subsection{Earth Coordinate Systems}
+The aircraft system definition usually starts with the definitions of earth axes
+system since it will define ``how inertial'' will be the aircraft system be.
+\subsubsection{NED}
+\subsubsection{ENU}
+
+\subsection{Body Coordinate System}
+These axes are caracterized by having $\phi$ , $\theta$ and $\psi$ angles,
+The transformation from Body Axes to Earth Axis is given by a rotation of $\phi$ aroun
+the x-axis (roll angle), followed by a rotation of $\theta$ around the y-axis (pitch angle)
+and finaly a rotation of $\psi$ around the z-axis (yaw angle).
+
+\begin{eqnarray*}
+    T_{BE} &=& R_z(\psi) R_y(\theta) R_x(\phi) \\
+    T_{BE} &=&
+    \begin{bmatrix}
+        cos(\psi)&   -sin(\psi)&    0\\
+        sin(\psi)&    cos(\psi)&    0\\
+        0&              0&          1\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        cos(\theta)&    0&      sin(\theta)\\
+        0&              1&      0\\
+        -sin(\theta)&    0&      cos(\theta)\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        1&    0&                0\\
+        0&    cos(\phi)&      -sin(\phi)\\
+        0&    sin(\phi)&      cos(\phi)\\
+    \end{bmatrix}\\
+    T_{BE} &=&
+    \begin{bmatrix}
+        cos(\theta)cos(\psi)&    sin(\theta)sin(\phi)cos(\psi)- cos(\phi)sin(\psi)&   sin(\theta)cos(\phi)cos(\psi) + sin(\phi)sin(\psi)\\
+        cos(\theta)sin(\psi)&    sin(\theta)sin(\phi)sin(\psi)+ cos(\phi)cos(\psi)&   sin(\theta)cos(\phi)sin(\psi) - sin(\phi)cos(\psi)\\
+        -sin(\theta)&            cos(\theta)sin(\phi)&                                  cos(\theta)cos(\phi)\\
+    \end{bmatrix}
+\end{eqnarray*}
+
+The inverse transformation from Earth Axes to Body Axes will be given by:
+\begin{eqnarray*}
+    T_{EB} &=& {T_{BE}}^{-1} = {T_{BE}}^T\\
+    T_{EB} &=& (R_z(\psi) R_y(\theta) R_x(\phi))^T \\
+    T_{EB} &=& R_x(\phi)^T R_y(\theta)^T  R_z(\psi)^T\\
+    T_{EB} &=&
+    \begin{bmatrix}
+        1&    0&                0\\
+        0&    cos(\phi)&       sin(\phi)\\
+        0&    -sin(\phi)&      cos(\phi)\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        cos(\theta)&    0&      -sin(\theta)\\
+        0&              1&      0\\
+        sin(\theta)&    0&      cos(\theta)\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        cos(\psi)&     sin(\psi)&    0\\
+        -sin(\psi)&    cos(\psi)&    0\\
+        0&              0&          1\\
+    \end{bmatrix}\\
+    T_{EB} &=&
+    \begin{bmatrix}
+        cos(\theta)cos(\psi)&                                  cos(\theta)sin(\psi)&                                 -sin(\theta)\\
+        sin(\theta)sin(\phi)cos(\psi)- cos(\phi)sin(\psi)&     sin(\theta)sin(\phi)sin(\psi)+ cos(\phi)cos(\psi)&    cos(\theta)sin(\phi)\\
+        sin(\theta)cos(\phi)cos(\psi) + sin(\phi)sin(\psi)&    sin(\theta)cos(\phi)sin(\psi) - sin(\phi)cos(\psi)&   cos(\theta)cos(\phi)\\
+    \end{bmatrix}
+\end{eqnarray*}
+
+
+
+\subsection{Wind Coordinate System}
+These axes are caracterized by having $\alpha$  and $\beta$ angles between them and the
+body axes.
+The transformation from Wind Axes to Body Axes ($T_{WB}$) is given by a rotation of $\beta$
+around the z-axis of the wind frame, followed by a rotation of $-\alpha$ around y-axis.
+
+\begin{eqnarray}
+    T_{WB} &=& R_y(-\alpha) R_z(\beta) \\
+    T_{WB} &=&
+    \begin{bmatrix}
+        cos(\alpha)&    0&      -sin(\alpha)\\
+        0&              1&      0\\
+        sin(\alpha)&    0&      cos(\alpha)\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        cos(\beta)&   -sin(\beta)&    0\\
+        sin(\beta)&    cos(\beta)&    0\\
+        0&              0&            1\\
+    \end{bmatrix}\\
+    T_{WB} &=&
+    \begin{bmatrix}
+        cos(\alpha)cos(\beta)&    -cos(\alpha)sin(\beta)&   -sin(\alpha)\\
+        sin(\beta)&                cos(\beta)&               0\\
+        sin(\alpha)cos(\beta)&    -sin(\alpha)sin(\beta)&   cos(\alpha)\\
+    \end{bmatrix}
+\end{eqnarray}
+
+The inverse transformation from Body Axes to Wind Axes is given by:
+\begin{eqnarray}
+    T_{BW} &=& {T_{WB}}^{-1} = {T_{WB}}^{T} \\
+    T_{BW} &=& (R_y(-\alpha) R_z(\beta))^T \\
+    T_{BW} &=& R_z(\beta)^T R_y(-\alpha)^T \\
+    T_{BW} &=&
+    \begin{bmatrix}
+        cos(\beta)&     sin(\beta)&    0\\
+        -sin(\beta)&    cos(\beta)&    0\\
+        0&              0&             1\\
+    \end{bmatrix}
+    \begin{bmatrix}
+        cos(\alpha)&    0&      sin(\alpha)\\
+        0&              1&      0\\
+        -sin(\alpha)&   0&      cos(\alpha)\\
+    \end{bmatrix}\\
+    T_{BW} &=&
+    \begin{bmatrix}
+        cos(\alpha)cos(\beta)&    sin(\beta)&   sin(\alpha)cos(\beta)\\
+       -cos(\alpha)sin(\beta)&    cos(\beta)&  -sin(\alpha)sin(\beta)\\
+       -sin(\alpha)&              0&            cos(\alpha)\\
+    \end{bmatrix}
+\end{eqnarray}
+
+
+\subsubsection{Transformation Earth-Wind}
+The tranformation from Earth Axes to Wind Axes is the composition of Earth to Body
+then Body to Wind, i.e.:
+
+\begin{eqnarray}
+    T_{EW} &=& T_{BW}T_{EB}\\
+    T_{EW} &=& (R_z(\beta)^T R_y(-\alpha)^T) (R_x(\phi)^T R_y(\theta)^T  R_z(\psi)^T)
+\end{eqnarray}
+
+The transformation from Wind to Earth Axes would be:
+
+\begin{eqnarray}
+    T_{WE} &=& T_{BE}T_{WB}\\
+    T_{WE} &=& (R_z(\psi) R_y(\theta) R_x(\phi)) (R_y(-\alpha) R_z(\beta)) \\
+\end{eqnarray}
+
+
+\newpage
+\section{Aerospace Vehicles Forces}
+\subsection{Inertial Forces}
+The inertial forces occur on all aircraft components (since all have mass), but from Newtonian mechanics the choice of reference can also
+``introduce'' inertial forces. As intertial forces that act on the airframe we account for the weight $W$, inertial force $m a_i$, and all the
+inertial forces due to reference frame choice. Usually the inertial forces are represented on the center of gravity (c.g.)
+
+\subsection{Aerodynamic Forces}
+The aerodynamic force on a powered airplane is commonly represented by three vectors: thrust, lift and drag \ref{wiki_aero_force}.
+Has a simplification we only include the wings+fuselage lift ($L$) and drag ($D$) engine thrust ($T$) and when applicable tail lift ($L_t$)
+These aerodynamic forces are usually represented in the aerodynamic center (a.c.) since in this point the aerodynamic pitching moment $M_0$ is constant
+and does not change with angle of attack ($\alpha$).
+
+
+\subsection{Propulsion Forces}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \chapter{Aerospace Structures}
 
 \newpage
@@ -6,9 +176,6 @@
 
 \subsection{Regulations}
 \hl{some very condensed regulation can go here. yada yada yada}
-
-
-
 
 
 \newpage
@@ -31,6 +198,8 @@ sign of acceleration in that axis.
 \Sigma F_i &=& m a_i \\
 \end{eqnarray}
 A since the mass can be written as weight.
+
+
 
 \begin{eqnarray}
 W &=& m g \\
@@ -55,19 +224,6 @@ Therefore the new definition of load factor difers from the previous by weight f
 Despite the fact that this chapter deals with aircraft loads we went into no details about the resultant of the forces that act on the
 airframe ($\Sigma F_i$). This section focused only in representing the usual equation formatting the is done in terms for loads factors.
 
-\subsection{Inertial Loads}
-The inertial forces occur on all aircraft components (since all have mass), but from Newtonian mechanics the choice of reference can also
-``introduce'' inertial forces. As intertial forces that act on the airframe we account for the weight $W$, inertial force $m a_i$, and all the
-inertial forces due to reference frame choice. Usually the inertial forces are represented on the center of gravity (c.g.)
-
-
-
-\subsection{Aerodynamic Loads}
-The aerodynamic force on a powered airplane is commonly represented by three vectors: thrust, lift and drag \ref{wiki_aero_force}.
-Has a simplification we only include the wings+fuselage lift ($L$) and drag ($D$) engine thrust ($T$) and when applicable tail lift ($L_t$)
-These aerodynamic forces are usually represented in the aerodynamic center (a.c.) since in this point the aerodynamic pitching moment $M_0$ is constant
-and does not change with angle of attack ($\alpha$).
-
 
 
 \subsection{Flight Maneouvers}
@@ -75,38 +231,6 @@ Before we start babbling about all the force and mometum equation and the
 correspoing load factors for each flight conditions it's far more important
 to show how to consistently deduce them. So we adopt a serious treatment of aircraft axes systems since they are the base for
 all aircraft dynamic equations, and an usualy underexplained topic.
-
-\subsubsection{Earth Coordinate Systems}
-The aircraft system definition usually starts with the definitions of earth axes
-system since it will define ``how inertial'' will be the aircraft system be.
-
-\bf{ECI}
-Earth centered inertial
-
-\bf{ECEF}
-
-\bf{ENU}
-
-\bf{NED}
-
-\subsubsection{Aircraft Coordinate Systems}
-
-
-\bf{Body}
-
-
-\begin{equation}
-    Rx(\theta) =
-    \begin{bmatrix}
-        1&   0&               0\\
-        0&   cos(\theta)&     sin(\theta)\\
-        0&   -sin(\theta)&    cos(\theta)\\
-    \end{bmatrix}
-\end{equation}
-
-
-\bf{Wind}
-
 
 \subsubsection{Steady Climb/Descent}
 
@@ -131,9 +255,6 @@ In this scenario the only acceleration component is inwards to turn radius $R$, 
 
 \newpage
 \section{Bending, Shear and Torsion of Thin Walled Beams}
-
-
-
 
 
 
