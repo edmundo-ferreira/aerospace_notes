@@ -8,10 +8,10 @@ system since it will define ``how inertial'' will be the aircraft system be.
 \subsubsection{ENU}
 
 \subsection{Body Coordinate System}
-These axes are caracterized by having $\phi$ , $\theta$ and $\psi$ angles,
-The transformation from Body Axes to Earth Axis is given by a rotation of $\phi$ aroun
+These axes are characterized by having $\phi$ , $\theta$ and $\psi$ angles,
+The transformation from Body Axes to Earth Axis is given by a rotation of $\phi$ around
 the x-axis (roll angle), followed by a rotation of $\theta$ around the y-axis (pitch angle)
-and finaly a rotation of $\psi$ around the z-axis (yaw angle).
+and finally a rotation of $\psi$ around the z-axis (yaw angle).
 
 \begin{eqnarray*}
     T_{BE} &=& R_z(\psi) R_y(\theta) R_x(\phi) \\
@@ -71,7 +71,7 @@ The inverse transformation from Earth Axes to Body Axes will be given by:
 
 
 \subsection{Wind Coordinate System}
-These axes are caracterized by having $\alpha$  and $\beta$ angles between them and the
+These axes are characterized by having $\alpha$  and $\beta$ angles between them and the
 body axes.
 The transformation from Wind Axes to Body Axes ($T_{WB}$) is given by a rotation of $\beta$
 around the z-axis of the wind frame, followed by a rotation of $-\alpha$ around y-axis.
@@ -123,7 +123,7 @@ The inverse transformation from Body Axes to Wind Axes is given by:
 
 
 \subsubsection{Transformation Earth-Wind}
-The tranformation from Earth Axes to Wind Axes is the composition of Earth to Body
+The transformation from Earth Axes to Wind Axes is the composition of Earth to Body
 then Body to Wind, i.e.:
 
 \begin{eqnarray}
@@ -135,7 +135,7 @@ The transformation from Wind to Earth Axes would be:
 
 \begin{eqnarray}
     T_{WE} &=& T_{BE}T_{WB}\\
-    T_{WE} &=& (R_z(\psi) R_y(\theta) R_x(\phi)) (R_y(-\alpha) R_z(\beta)) \\
+    T_{W\rightarrow NED} &=& (R_z(\psi) R_y(\theta) R_x(\phi)) (R_y(-\alpha) R_z(\beta)) \\
 \end{eqnarray}
 
 
@@ -143,22 +143,44 @@ The transformation from Wind to Earth Axes would be:
 \section{Aerospace Vehicles Forces}
 \subsection{Inertial Forces}
 The inertial forces occur on all aircraft components (since all have mass), but from Newtonian mechanics the choice of reference can also
-``introduce'' inertial forces. As intertial forces that act on the airframe we account for the weight $W$, inertial force $m a_i$, and all the
-inertial forces due to reference frame choice. Usually the inertial forces are represented on the center of gravity (c.g.)
+``introduce'' inertial forces. The inertial forces that act on the airframe $m a_i$ are represented on the center of gravity (c.g.).
+\begin{equation}
+  \vec{F}_{inertial}|_{NED} = m
+    \begin{bmatrix}
+      a_x\\
+      a_y\\
+      a_z
+    \end{bmatrix}
+\end{equation}
+
 
 \subsection{Aerodynamic Forces}
 The aerodynamic force on a powered airplane is commonly represented by three vectors: thrust, lift and drag \ref{wiki_aero_force}.
 Has a simplification we only include the wings+fuselage lift ($L$) and drag ($D$) engine thrust ($T$) and when applicable tail lift ($L_t$)
 These aerodynamic forces are usually represented in the aerodynamic center (a.c.) since in this point the aerodynamic pitching moment $M_0$ is constant
 and does not change with angle of attack ($\alpha$).
+\begin{equation}
+  \vec{F}_{aero}|_{W} =
+    \begin{bmatrix}
+      T-D\\
+      0\\
+      -(L+L_t)
+    \end{bmatrix}
+\end{equation}
 
 
-\subsection{Propulsion Forces}
 
-
-
-
-
+\subsection{Gravitic Forces}
+The gravity force or weight is easily expressed in the NED reference frame and is considered has acting in center of gravity (c.g.).
+\begin{equation}
+  \vec{F}_g|_{NED} =
+  \vec{W}|_{NED} =
+    \begin{bmatrix}
+      0\\
+      0\\
+      mg
+    \end{bmatrix}
+\end{equation}
 
 
 
@@ -186,12 +208,12 @@ and does not change with angle of attack ($\alpha$).
 \subsection{Load Factors}
 The definition of load factor is usually given to students as the ratio of lift over weight i.e. $n= \dfrac{L}{W}$, although this is can be true,
 it is only so in very simplified cases, since in some flight condition or axis there might not even exist lift force component.
-The more general definition for load factor for a given axis, is ratio of restultant forces over weight.
+The more general definition for load factor for a given axis, is ratio of resultant forces over weight.
 An equivalent statement for load factor is the factor, for which the weight is multiplied so that a dynamic problem could be reduced to a static problem.
-As we will see these last definitions cover all possible fligth cases from steady fight to landings, and also automatically define load factors
-foreach reference frame axis.
+As we will see these last definitions cover all possible flight cases from steady fight to landings, and also automatically define load factors
+for each reference frame axis.
 Some of the important properties of the load factor, according to these definitions are they depend on the all the forces that are present
-in the aircraft in a certain instant and also that the lood factor sign is dependent on the choice of reference frame, since it is tied to
+in the aircraft in a certain instant and also that the load factor sign is dependent on the choice of reference frame, since it is tied to
 sign of acceleration in that axis.
 
 \begin{eqnarray}
@@ -211,7 +233,7 @@ n_i &\equiv& \frac{\Sigma F_i}{W} \\
 n_i &\equiv& \frac{a_i}{g}
 \end{eqnarray}
 
-Althoug usefull this definition it includes a subtlety, in the sum of all forces i.e. resultant force, the weight force can be included
+Although useful this definition it includes a subtlety, in the sum of all forces i.e. resultant force, the weight force can be included
 or not in that resultant, therefore a new load factor can be defined by excluding that weight factor from the resultant force and adding it to the inertial force.
 \begin{eqnarray}
 n_i &=& \frac{\Sigma F_i \mp k_iW}{W} \\
@@ -219,7 +241,7 @@ n_i \pm k_i &=& \frac{\Sigma F_i}{W} \\
 \bar{n}_i &\equiv& n_i \pm k_i
 \end{eqnarray}
 
-Therefore the new definition of load factor difers from the previous by weight factor $\pm k_i$ depending again on the reference frame orientaion.
+Therefore the new definition of load factor differs from the previous by weight factor $\pm k_i$ depending again on the reference frame orientation.
 
 Despite the fact that this chapter deals with aircraft loads we went into no details about the resultant of the forces that act on the
 airframe ($\Sigma F_i$). This section focused only in representing the usual equation formatting the is done in terms for loads factors.
@@ -227,10 +249,10 @@ airframe ($\Sigma F_i$). This section focused only in representing the usual equ
 
 
 \subsection{Flight Maneouvers}
-Before we start babbling about all the force and mometum equation and the
-correspoing load factors for each flight conditions it's far more important
+Before we start babbling about all the force and momentum equation and the
+corresponding load factors for each flight conditions it's far more important
 to show how to consistently deduce them. So we adopt a serious treatment of aircraft axes systems since they are the base for
-all aircraft dynamic equations, and an usualy underexplained topic.
+all aircraft dynamic equations, and an usually poor explained topic.
 
 \subsubsection{Steady Climb/Descent}
 
@@ -253,21 +275,46 @@ In this scenario the only acceleration component is inwards to turn radius $R$, 
 
 
 
+
+
+
+
+
+
 \newpage
 \section{Bending, Shear and Torsion of Thin Walled Beams}
 
 
 
 
+
+
+
+
+
+
+\newpage
+\section{Structural Idealization}
+
+
+
+
+
+
+
 \newpage
 \section{Aeroelasticity}
-Aeroelasticity is essentially the coupling of aerodynamics loads and the structural elastic behavior of the airplane's fuselage, and specially, tail and wings. What happens in the wing for example is the lift generated bends the wing upward changing the local incidence angle thus adding more lift, thus more bending, thus more lift, till a equilibrium is reached, if the wing stiffness if enough or till the material load limit and therefore destruction of the wing.
+Aeroelasticity is essentially the coupling of aerodynamics loads and the structural elastic behavior of the airplane's fuselage, and specially, tail and wings.
+What happens in the wing for example is the lift generated bends the wing upward changing the local incidence angle thus adding more lift, thus more bending,
+thus more lift, till a equilibrium is reached, if the wing stiffness if enough or till the material load limit and therefore destruction of the wing.
 
 Aeroelasticity can subdivided into steady and dynamic phenomena. In steady
-aeroeslaticity, we assume that a equilibrium of aerodynamic loading distribution and the deformed structured has been reached thus assuming that that configuration exists by providing enough stiffness.  In dynamic aeroelasticity were interest in analyzing the transient behavior of the structure, thus inertial forces must be included in the models.
+aeroeslaticity, we assume that a equilibrium of aerodynamic loading distribution and the deformed structured has been reached thus assuming that that configuration exists by providing enough stiffness.
+In dynamic aeroelasticity were interest in analyzing the transient behavior of the structure, thus inertial forces must be included in the models.
 
 \subsection{Airfoil Torsional Divergence}
-Coupling of torsional load and the divergence is one of the most important in wing aeroelasticity because a twist of the wing greatly impacts local incidence angle of the airfoil and thus the lift and looping back the the structure twist.
+Coupling of torsional load and the divergence is one of the most important in wing aeroelasticity because a twist of the wing greatly impacts local incidence angle of the airfoil
+and thus the lift and looping back the the structure twist.
 Simple 2-D wing tunnel models are presented next:
 
 \subsubsection{Wall Mounted Model}
@@ -277,7 +324,7 @@ Simple 2-D wing tunnel models are presented next:
 \subsubsection{Strut Mounted Model}
 
 \subsection{Finite Straight Wing Torsional Divergence}
-Making an equilibrium of moments in spanwise wing element of lenght $\Delta z$ one obtains the following equation
+Making an equilibrium of moments in spanwise wing element of length $\Delta z$ one obtains the following equation
 \begin{align}
 \left( T+\frac{d T}{d z}\Delta z \right)-T +ec\Delta L + \Delta M_{ac}=0\\
 \Delta L= \frac{1}{2} \rho U^2 \Delta S C_L = \frac{1}{2} \rho U^2 c \Delta z \left( C_{L_0} + \frac{\partial C_L}{\partial \alpha}(\alpha + \theta) \right)\\
