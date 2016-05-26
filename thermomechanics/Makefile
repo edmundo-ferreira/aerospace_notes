@@ -1,14 +1,9 @@
-all: base clean
-
-base:
-	lualatex Aerospace_Notes_Thermomechanics.tex
+all:
+	latexmk -pdf Aerospace_Notes_Thermomechanics.tex
+	#latexmk -pdf -pvc Aerospace_Notes_Thermomechanics.tex
 
 clean:
-	(rm -rf *.toc *.aux *.bbl *.blg *.log *.out *.fls *.fdb_latexmk *.gz)
+	latexmk -c
 
 veryclean: clean
-	(rm -rf *.pdf)
-
-
-
-
+	latexmk -C

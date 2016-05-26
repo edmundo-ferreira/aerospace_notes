@@ -1,6 +1,6 @@
 \chapter{Fluid Mechanics}
 
-The motion of a fluid is completely described by the conservation laws for the three basic properties: mass, momentum and energy. 
+The motion of a fluid is completely described by the conservation laws for the three basic properties: mass, momentum and energy.
 Indeed,how complicated the detailed evolution of a system might be, not only are the basic
 properties mass, momentum and energy conserved during the whole process at all
 times but more than that, these three conditions
@@ -66,21 +66,21 @@ the expression of the first principle of Thermodynamics.
 
 \newpage
 \section{Euler Flow}
-The Euler flow can be taken directly from the fundamental equations of chapter \ref{fundamentals}, however they are derivable from the Navier-Stokes flow equation by assuming that there are no viscous/shear forces present i.e. $\tau_{ij}=0$. 
+The Euler flow can be taken directly from the fundamental equations of chapter \ref{fundamentals}, however they are derivable from the Navier-Stokes flow equation by assuming that there are no viscous/shear forces present i.e. $\tau_{ij}=0$.
 \subsection*{Mass:}
-\begin{eqnarray}        
-    \frac{\partial \rho}{\partial t} +  \frac{\partial \rho v_j}{\partial x_j} &=& 0 
-\end{eqnarray}        
+\begin{eqnarray}
+    \frac{\partial \rho}{\partial t} +  \frac{\partial \rho v_j}{\partial x_j} &=& 0
+\end{eqnarray}
 
 \subsection*{Momentum:}
-\begin{eqnarray}        
-    \frac{\partial \rho v_i}{\partial t} +  \frac{\partial \rho v_i v_j}{\partial x_j} &=& \rho f_i - \frac{\partial p}{\partial x_i} 
-\end{eqnarray}        
+\begin{eqnarray}
+    \frac{\partial \rho v_i}{\partial t} +  \frac{\partial \rho v_i v_j}{\partial x_j} &=& \rho f_i - \frac{\partial p}{\partial x_i}
+\end{eqnarray}
 
 \subsection*{Energy:}
-\begin{eqnarray}        
-\frac{\partial \rho e_u+ \rho\frac{v_i v_i}{2}}{\partial t} +  \frac{\partial (\rho e_u + \rho\frac{v_i v_i}{2} v_j)}{\partial x_j} &=&  \dot{q} + \frac{\partial} {\partial x_j} \left( k\frac{\partial T}{d x_j} \right) - \rho f_i v_i  + \frac{\partial  p v_j }{\partial x_j} 
-\end{eqnarray}        
+\begin{eqnarray}
+\frac{\partial \rho e_u+ \rho\frac{v_i v_i}{2}}{\partial t} +  \frac{\partial (\rho e_u + \rho\frac{v_i v_i}{2} v_j)}{\partial x_j} &=&  \dot{q} + \frac{\partial} {\partial x_j} \left( k\frac{\partial T}{d x_j} \right) - \rho f_i v_i  + \frac{\partial  p v_j }{\partial x_j}
+\end{eqnarray}
 
 
 \subsection{Steady Quasi-1D Adiabatic Euler Flow}
@@ -90,27 +90,27 @@ The Euler flow can be taken directly from the fundamental equations of chapter \
 
 \subsection{Steady 1D Adiabatic Euler Flow}
 \label{1d_adiabatic_inviscid}
-An case of extreme engineering importance is the Euler flow equations for a steady, unidimensional and adiabatic produces the following simplified equations. 
+An case of extreme engineering importance is the Euler flow equations for a steady, unidimensional and adiabatic produces the following simplified equations.
 This situation can be used to explain properties of flows in supersonic conditions, and their shock waves.
 \hl{talk about what means 1D vs Quasi 1D}
 \subsubsection*{Mass:}
- \begin{eqnarray}        
-    \int\limits_{\mathcal{A}} \rho v_j n_j dA &=& 0 \\ 
-    \rho_1 v_1  &=&\rho_2 v_2 
-\end{eqnarray}        
+ \begin{eqnarray}
+    \int\limits_{\mathcal{A}} \rho v_j n_j dA &=& 0 \\
+    \rho_1 v_1  &=&\rho_2 v_2
+\end{eqnarray}
 
-     
+
 \subsubsection*{Momentum:}
-\begin{eqnarray}        
-    \int\limits_{\mathcal{A}} \rho v_i v_j n_j dA &=& \int\limits_{\mathcal{A}} - p n_i dA \\ 
+\begin{eqnarray}
+    \int\limits_{\mathcal{A}} \rho v_i v_j n_j dA &=& \int\limits_{\mathcal{A}} - p n_i dA \\
     \rho_1 v^2_1 + p_1&=&  \rho_2 v^2_2 + p_2
-\end{eqnarray}        
+\end{eqnarray}
 
 \subsubsection*{Energy:}
-\begin{eqnarray}        
-     \int\limits_{\mathcal{A}} (\rho e_I + \rho\frac{v_i v_i}{2}) v_j n_j dA &=& \int\limits_{\mathcal{A}} - p v_j n_j dA \\ 
-     \rho_1 e_{I_1} + \rho_1\frac{v^2_1 }{2} v_1  + p_1 v_1 &=& \rho_2 e_{I_2} + \rho_2\frac{v^2_2 }{2} v_2 +  p_2 v_2  
-\end{eqnarray}        
+\begin{eqnarray}
+     \int\limits_{\mathcal{A}} (\rho e_I + \rho\frac{v_i v_i}{2}) v_j n_j dA &=& \int\limits_{\mathcal{A}} - p v_j n_j dA \\
+     \rho_1 e_{I_1} + \rho_1\frac{v^2_1 }{2} v_1  + p_1 v_1 &=& \rho_2 e_{I_2} + \rho_2\frac{v^2_2 }{2} v_2 +  p_2 v_2
+\end{eqnarray}
 
 \subsubsection{Normal Shock Waves}
 the mach numbers after $M_2$ and before $M_1$, are related between themselves by:
@@ -143,36 +143,36 @@ The all expansion is composed of infinitesimal Mach waves we can consider the pr
 
 
 
-\newpage	
+\newpage
 \subsection{Fanno Flow}
 Adiabatic flow through a constant area duct where the effect of friction is considered is also know as Fanno flow.
 
-\newpage	
-\subsection{Steady 1D Non-Adiabatic Euler Flow (Rayleigh Flow)} 
+\newpage
+\subsection{Steady 1D Non-Adiabatic Euler Flow (Rayleigh Flow)}
 Non-adiabatic flow through a constant area duct where the effect of heat addition or rejection is also know as the
 Rayleigh. The only significant difference relative to the 1D adiabatic Inviscid Flow of \ref{1d_adiabatic_inviscid} is the addition of heat to the energy equation.
 \subsubsection*{Mass:}
- \begin{eqnarray}        
-    \int\limits_{\mathcal{A}} \rho v_j n_j dA &=& 0 \\ 
-    \rho_1 v_1  &=&\rho_2 v_2 
-\end{eqnarray}        
+ \begin{eqnarray}
+    \int\limits_{\mathcal{A}} \rho v_j n_j dA &=& 0 \\
+    \rho_1 v_1  &=&\rho_2 v_2
+\end{eqnarray}
 
-     
+
 \subsubsection*{Momentum:}
-\begin{eqnarray}        
-    \int\limits_{\mathcal{A}} \rho v_i v_j n_j dA &=& \int\limits_{\mathcal{A}} - p n_i dA \\ 
+\begin{eqnarray}
+    \int\limits_{\mathcal{A}} \rho v_i v_j n_j dA &=& \int\limits_{\mathcal{A}} - p n_i dA \\
     \rho_1 v^2_1 + p_1&=&  \rho_2 v^2_2 + p_2
-\end{eqnarray}        
+\end{eqnarray}
 
 \subsubsection*{Energy:}
-\begin{eqnarray}        
-     \int\limits_{\mathcal{A}} (\rho e_I + \rho\frac{v_i v_i}{2}) v_j n_j dA &=&  \int\limits_{\mathcal{V}} \dot{q} dV + \int\limits_{\mathcal{A}} - p v_j n_j dA \\ 
-     \rho_1 e_{I_1} + \rho_1\frac{v^2_1 }{2} v_1  + p_1 v_1 &=& q + \rho_2 e_{I_2} + \rho_2\frac{v^2_2 }{2} v_2 +  p_2 v_2  
-\end{eqnarray}        
+\begin{eqnarray}
+     \int\limits_{\mathcal{A}} (\rho e_I + \rho\frac{v_i v_i}{2}) v_j n_j dA &=&  \int\limits_{\mathcal{V}} \dot{q} dV + \int\limits_{\mathcal{A}} - p v_j n_j dA \\
+     \rho_1 e_{I_1} + \rho_1\frac{v^2_1 }{2} v_1  + p_1 v_1 &=& q + \rho_2 e_{I_2} + \rho_2\frac{v^2_2 }{2} v_2 +  p_2 v_2
+\end{eqnarray}
 
 Solving the energy equation the heat per unit mass.
-\begin{eqnarray} 
-     \rho_1 e_{I_1} + \rho_1\frac{v^2_1 }{2} v_1  + p_1 v_1 &=& q + \rho_2 e_{I_2} + \rho_2\frac{v^2_2 }{2} v_2 +  p_2 v_2  
+\begin{eqnarray}
+     \rho_1 e_{I_1} + \rho_1\frac{v^2_1 }{2} v_1  + p_1 v_1 &=& q + \rho_2 e_{I_2} + \rho_2\frac{v^2_2 }{2} v_2 +  p_2 v_2
 \end{eqnarray}
 
 
@@ -182,27 +182,27 @@ Solving the energy equation the heat per unit mass.
 \newpage
 \section{Potential Flow}
 The potencial flow is definitely very important since, when futher linearized, provides one of the only analytical methods of determining aerodynamic properties in airfoils and wing for either subsonic and supersonic.
-We start by presenting flow equation, that are obtainable from the Euler flow by assuming no volumic forces $\vec{f}=0$, adiabatic i.e. no heat transfers. 
+We start by presenting flow equation, that are obtainable from the Euler flow by assuming no volumic forces $\vec{f}=0$, adiabatic i.e. no heat transfers.
 
 The flow gains it's name from the fact that the velocity field is irrotational, therefore it can be expressed as gradient of a pontential function $\Phi$.
-\begin{eqnarray}        
+\begin{eqnarray}
     \vec{\nabla}\times \vec{v} = 0   \quad \rightarrow \quad  \vec{v}=\vec{\nabla} \Phi
-\end{eqnarray}        
+\end{eqnarray}
 
 \hl{mention kelvin theorem}
 \subsection*{Mass:}
-\begin{eqnarray}        
-    \frac{\partial \rho}{\partial t} +  \frac{\partial \rho v_j}{\partial x_j} &=& 0 
-\end{eqnarray}        
+\begin{eqnarray}
+    \frac{\partial \rho}{\partial t} +  \frac{\partial \rho v_j}{\partial x_j} &=& 0
+\end{eqnarray}
 
 \subsection*{Momentum:}
-\begin{eqnarray}        
-    \frac{\partial \rho v_i}{\partial t} +  \frac{\partial \rho v_i v_j}{\partial x_j} &=& - \frac{\partial p}{\partial x_i} 
-\end{eqnarray}        
+\begin{eqnarray}
+    \frac{\partial \rho v_i}{\partial t} +  \frac{\partial \rho v_i v_j}{\partial x_j} &=& - \frac{\partial p}{\partial x_i}
+\end{eqnarray}
 
 \subsection*{Energy:}
-\begin{eqnarray}        
-\end{eqnarray}        
+\begin{eqnarray}
+\end{eqnarray}
 
 
 \subsection{Linearized Potential Flow}
@@ -210,8 +210,13 @@ The flow gains it's name from the fact that the velocity field is irrotational, 
 
 
 
+\newpage
+\chapter{Airfoil Theory}
 
 
+
+\newpage
+\chapter{Wing Theory}
 
 
 
@@ -232,7 +237,7 @@ The flow gains it's name from the fact that the velocity field is irrotational, 
 %An by the definition of number of Mach.
 %\begin{equation}
 %M \equiv \frac{U}{a}
-%\end{equation} 
+%\end{equation}
 
 %So we can rewrite the pressure coefficient for incompressible flows.
 
@@ -258,5 +263,3 @@ The flow gains it's name from the fact that the velocity field is irrotational, 
 %\begin{equation}
 %C_p=\frac{1}{\frac{1}{2}\gamma M_\infty^2} \left[ \left( \frac{1 + \frac{\gamma -1}{2}M_\infty^2}{1 + \frac{\gamma -1}{2}M^2}\right)^{\frac{\gamma-1}{\gamma}} -1 \right]
 %\end{equation}
-
-
