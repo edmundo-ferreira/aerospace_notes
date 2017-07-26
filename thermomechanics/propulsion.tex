@@ -2,30 +2,30 @@
     
     The fuel to inlet flow ratio is defined as follows:
     \begin{equation}
-        f \equiv \frac{\dot{m}_f}{\dot{m}_i}
+        f \defeq \frac{\dot{m}_f}{\dot{m}_i}
     \end{equation}
     
 %    Some usefull performance measurements are the propulsive power efficiency $\eta_{propulsive}$, thermal efficiency $\eta_{thermal}$  
-    %\begin{eqnarray}
+    %\begin{align}
         %\label{propulsive_efficiency}
-        %\eta_{propulsive} &\equiv& \frac{\text{Thrust Power}}{\text{Jet Power}} = \frac{T u}{P_{jet}} \\
+        %\eta_{propulsive} &\defeq& \frac{\text{Thrust Power}}{\text{Jet Power}} = \frac{T u}{P_{jet}} \\
         %\label{thermal_efficiency}
-        %\eta_{thermal} &\equiv& \frac{\text{Jet Power}}{\text{Fuel Calorific Power}}   = \frac{P_{jet}}{\dot{Q}_R\dot{m}_f}\\
+        %\eta_{thermal} &\defeq& \frac{\text{Jet Power}}{\text{Fuel Calorific Power}}   = \frac{P_{jet}}{\dot{Q}_R\dot{m}_f}\\
         %\label{total_efficiency}
-        %\eta_{total} &\equiv& \frac{\text{Thrust Power}}{\text{Fuel Calorific Power}} = \eta_{propulsive} \eta_{thermal}
-    %\end{eqnarray}
+        %\eta_{total} &\defeq& \frac{\text{Thrust Power}}{\text{Fuel Calorific Power}} = \eta_{propulsive} \eta_{thermal}
+    %\end{align}
  
     A force parameter that is usually very importat is the specific impulse $I_s$ since it usually defines the size of the engine:
     \begin{equation}
-        I_s \equiv \frac{|\vec{T}|}{\dot{m}_f} 
+        I_s \defeq \frac{|\vec{T}|}{\dot{m}_f} 
     \end{equation}
     
     The consumption for fuel to thrust is also a very important parameter and it is named specific fuel consumption, and can be calculated for jet or prop engines with slightly different names 
-    \begin{eqnarray}
-       TSFC  &\equiv& \frac{\dot{m}_f}{|\vec{T}|} \\
-       BSFC  &\equiv& \frac{\dot{m}_f}{\dot{W}_u} \\
-       EBSFC &\equiv& \frac{\dot{m}_f}{\dot{W}_u + |\vec{T}_e|v_e} \\
-    \end{eqnarray}
+    \begin{align}
+       TSFC  &\defeq& \frac{\dot{m}_f}{|\vec{T}|} \\
+       BSFC  &\defeq& \frac{\dot{m}_f}{\dot{W}_u} \\
+       EBSFC &\defeq& \frac{\dot{m}_f}{\dot{W}_u + |\vec{T}_e|v_e} \\
+    \end{align}
  
 
 
@@ -45,26 +45,26 @@
 \section{Turbojet Engine}
     \subsection{Thrust Force}
     Mass Balance:
-    \begin{eqnarray}
+    \begin{align}
         \dot{m}_e &= &\dot{m}_i + \dot{m}_f\\
         \dot{m}_e &= &\dot{m}_i ( 1 + \frac{\dot{m}_f}{\dot{m}_f}) = \dot{m}_i ( 1 + f) 
-    \end{eqnarray}
+    \end{align}
 
     Momentum Balance:
-    \begin{eqnarray}
+    \begin{align}
         T_x &=& \dot{m}_e v_e - \dot{m}_i v_i + A_e (p_e - p_\infty)\\
         T_x &=& \dot{m}_i[(1+f)v_e - v_i] + A_e (p_e - p_\infty)\\
-    \end{eqnarray}
+    \end{align}
     If we assume $p_e = p_\infty$:
-    \begin{eqnarray}
+    \begin{align}
         T_x &=& \dot{m}_i[(1+f)v_e - v_i] 
-    \end{eqnarray}
-%    \begin{eqnarray}
+    \end{align}
+%    \begin{align}
         %\eta_{propulsive} = \frac{T v}{P_{jet}} \\
-    %\end{eqnarray}
-    %\begin{eqnarray}
+    %\end{align}
+    %\begin{align}
         %P_{jet} =  \dot{m}_i (v_i)^2\\
-    %\end{eqnarray}
+    %\end{align}
     
 
     \subsection{Ideal Thermodynamic Cycle}
@@ -91,12 +91,12 @@
     \subsection{Vehicle Dynamics}
     The vehicle dyamics is quite interesting due to the fact the coupling with the propulsive force is great.
     The momentum balance to the entire system can be tought as a compound control volume that is acelerated himself therefore the Reynolds trasport equation is:  
-    \begin{eqnarray}
+    \begin{align}
         \frac{d \vec{p}}{dt}|_{\text{sys}} &=& \vec{F}_{\text{ext\_sys}}\\ 
         \frac{d \vec{p}}{dt}|_{\text{rel\_cv}} + \frac{d \vec{p}}{dt}|_{\text{cv}} &=& \vec{F}_{\text{ext\_sys}}\\ 
         \int_V \rho \, \vec{a}_{cv} dV + \int_V \frac{\partial (\rho v_i)}{\partial t} dV + \int_A \rho v_i v_j n_j dA&=& \vec{F}_{\text{ext\_sys}} \\
         \int_V \rho \frac{\vec{V}_{cv}}{dt} dV + 0 + \dot{m}_e v_e &=& m\vec{g}
-    \end{eqnarray} 
+    \end{align} 
     \begin{equation}
         m\frac{\vec{V}_R}{dt} = -\dot{m} v_e  + m\vec{g}
     \end{equation}

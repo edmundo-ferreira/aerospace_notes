@@ -1,16 +1,16 @@
 \chapter{Fundamental Conservation Laws}
 \label{fundamentals}
 
-\section{Generalized Conservation Equation}
-We start by presenting the definition for a ``generic'' extensive property $\vec{A}$, in vector form for sake of generality. This extensive property represent a physical property that depends on the extension of a given body, i.e. is obtain by volumic integration of an intensive property $\alpha$. For example mass is an extensive property, that can obtained from density an intensive property. Other examples of extensive properties are momentum (linear and angular), energy and entropy, on the other some intensive properties, are density, temperature, pressure, velocity.
-\begin{defi}[\textbf{Extensive and Intensive Pyshical Properties}]
-\begin{align}
-  \boldsymbol{A}=\int\limits_{\mathcal{V}} \boldsymbol\alpha dV \quad
-  \Leftrightarrow \quad  \frac{d\boldsymbol A}{dV}=\boldsymbol \alpha
-\end{align}
-\end{defi}
+% \section{Generalized Conservation Equation}
+% We start by presenting the definition for a ``generic'' extensive property $\vec{A}$, in vector form for sake of generality. This extensive property represent a physical property that depends on the extension of a given body, i.e. is obtain by volumic integration of an intensive property $\alpha$. For example mass is an extensive property, that can obtained from density an intensive property. Other examples of extensive properties are momentum (linear and angular), energy and entropy, on the other some intensive properties, are density, temperature, pressure, velocity.
+% \begin{defi}[\textbf{Extensive and Intensive Pyshical Properties}]
+% \begin{align}
+%   \boldsymbol{A}=\int\limits_{\mathcal{V}} \boldsymbol\alpha dV \quad
+%   \Leftrightarrow \quad  \frac{d\boldsymbol A}{dV}=\boldsymbol \alpha
+% \end{align}
+% \end{defi}
 
-\newpage
+% \newpage
 
 \section{Conservation of Mass}
 The mass is an extensive property that can be given in terms of a intensive property, density $\rho$, by volume integration.
@@ -18,26 +18,26 @@ The mass is an extensive property that can be given in terms of a intensive prop
 m=\int\limits_{\mathcal{V}}\rho dV  \quad  \Leftrightarrow \quad  \frac{dm}{dV}= \rho
 \end{equation}
 In classical mechanics mass is axiomatically considered constant therefore its total temporal derivative is zero. Continuing from there using the Reynodls transport theorem \eqref{reynolds_theorem}, and \eqref{gauss_theorem}:
-\begin{eqnarray}
-    \frac{dm}{dt} &=& 0\\
-    \int\limits_{\mathcal{V}} \frac{\partial \rho}{\partial t} dV + \int\limits_{\mathcal{A}} \rho u_j n_j dA &=& 0 \\
-    \int\limits_{\mathcal{V}} \left(\frac{\partial \rho}{\partial t} + \frac{\partial \rho u_j}{\partial x_j} \right) dV  &=& 0 \\
-    \frac{\partial \rho}{\partial t} +  \frac{\partial \rho u_j}{\partial x_j} &=& 0
-\end{eqnarray}
+\begin{align}
+    \frac{dm}{dt} &= 0\\
+    \int\limits_{\mathcal{V}} \frac{\partial \rho}{\partial t} dV + \int\limits_{\mathcal{A}} \rho v_j n_j dA &= 0 \\
+    \int\limits_{\mathcal{V}} \left(\frac{\partial \rho}{\partial t} + \frac{\partial \rho v_j}{\partial x_j} \right) dV  &= 0 \\
+    \frac{\partial \rho}{\partial t} +  \frac{\partial \rho v_j}{\partial x_j} &= 0
+\end{align}
 The previous set of equation is crucial in all fluid dynamics, it contains the the Lagrangian mass conservation equation, the Eulerian mass conservation equation and also the Integral mass conservation equation. Most if not all problem in fluid dynamics and thermodynamics can be solved by using the most appropriate form.
 
-%\section{Conservation of species}
+\section{Conservation of Species}
 
 
 \section{Conservation of Linear Momentum}
-Here we also introduce the linear momentum vector $\mathbf{P}$, has the volume
-integration of density $\rho$, and velocity vector $\mathbf{u}$.
+Here we also introduce the linear momentum vector $\boldsymbol{p}$, has the volume
+integration of density $\rho$, and velocity vector $\boldsymbol{v}$.
 \begin{equation}
-P_i=\int\limits_{\mathcal{V}} \rho u_i dV \quad  \Leftrightarrow \quad \frac{dP_i}{dV}= \rho u_i 
+p_i=\int\limits_{\mathcal{V}} \rho v_i dV \quad  \Leftrightarrow \quad \frac{dp_i}{dV}= \rho v_i 
 \end{equation}
 
-Before proceeding to momentum equation it is extremelly usefull to introduce
-\hl{Cauch stress vector and stress tensor difinitions}
+Before proceeding to momentum equation it is extremely useful to introduce
+\hl{Cauchy stress vector and stress tensor definitions}
 \begin{equation}
     \label{cauchy_stress_vector}
     T_i = \sigma_{ij} n_j
@@ -49,40 +49,40 @@ Before proceeding to momentum equation it is extremelly usefull to introduce
 
 The conservation of linear momentum is no more than the statement of Newton law of motion, i.e. total temporal derivative of linear momentum equals the exterior forces acting in the system. The external forces  $F_i$ are expressed in  an equivalent of the volumetric and surface forces that are expressed by Cauch Stress tensor $\boldsymbol \sigma$. This same tensor can be separated in it's bulk or pressure and shear components according to \eqref{cauchy_tensor_separation}.
 
-\begin{eqnarray}
-    \frac{dP_i}{dt} &=& \Sigma F_i \\
-    \int\limits_{\mathcal{V}} \frac{\partial \rho u_i}{\partial t} dV + \int\limits_{\mathcal{A}} \rho u_i u_j n_j dA
-    &=& \int\limits_{\mathcal{V}} \rho f_i dV + \int\limits_{\mathcal{A}} T_i dA \\
-    \int\limits_{\mathcal{V}} \frac{\partial \rho u_i}{\partial t} dV + \int\limits_{\mathcal{A}} \rho u_i u_j n_j dA
-    &=& \int\limits_{\mathcal{V}} \rho f_i dV + \int\limits_{\mathcal{A}} \sigma_{ij}  n_j dA \\
-    \int\limits_{\mathcal{V}} \left( \frac{\partial \rho u_i}{\partial t} + \frac{\partial \rho u_i u_j}{\partial x_j}\right)dV
-    &=& \int\limits_{\mathcal{V}} \left( \rho f_i  + \frac{\partial \sigma_{ij}}{\partial x_j} \right)dV \\
-    \frac{\partial \rho u_i}{\partial t} +  \frac{\partial \rho u_i u_j}{\partial x_j}
-    &=& \rho f_i + \frac{\partial \sigma_{ij}}{\partial x_j}
-\end{eqnarray}
+\begin{align}
+    \frac{dp_i}{dt} &= \Sigma F_i \\
+    \int\limits_{\mathcal{V}} \frac{\partial \rho v_i}{\partial t} dV + \int\limits_{\mathcal{A}} \rho v_i v_j n_j dA
+    &= \int\limits_{\mathcal{V}} \rho f_i dV + \int\limits_{\mathcal{A}} T_i dA \\
+    \int\limits_{\mathcal{V}} \frac{\partial \rho v_i}{\partial t} dV + \int\limits_{\mathcal{A}} \rho v_i v_j n_j dA
+    &= \int\limits_{\mathcal{V}} \rho f_i dV + \int\limits_{\mathcal{A}} \sigma_{ij}  n_j dA \\
+    \int\limits_{\mathcal{V}} \left( \frac{\partial \rho v_i}{\partial t} + \frac{\partial \rho v_i v_j}{\partial x_j}\right)dV
+    &= \int\limits_{\mathcal{V}} \left( \rho f_i  + \frac{\partial \sigma_{ij}}{\partial x_j} \right)dV \\
+    \frac{\partial \rho v_i}{\partial t} +  \frac{\partial \rho v_i v_j}{\partial x_j}
+    &= \rho f_i + \frac{\partial \sigma_{ij}}{\partial x_j}
+\end{align}
 
-%\section{Conservation of Angular Momentum}
+\section{Conservation of Angular Momentum}
 
 \section{Conservation of Energy}
 Again defining energy $E$ has the volume integration of several energy types (internal, kinematic and potential) per unit mass.
 \begin{equation}
-E= E_I + E_K + \ldots \quad \Leftrightarrow \quad \int\limits_{\mathcal{V}} \rho e dV =  \int\limits_{\mathcal{V}} (\rho e_u+ \rho\frac{u_i u_i}{2} + \ldots) dV \quad  \Leftrightarrow \quad  \frac{d(E_I + E_K + \ldots) }{dV} = \rho e_u+ \rho\frac{u_i u_i}{2} + \ldots
+E= U + K + \ldots \quad \Leftrightarrow \quad \int\limits_{\mathcal{V}} \rho e dV =  \int\limits_{\mathcal{V}} (\rho u+ \rho\frac{v_i v_i}{2} + \ldots) dV \quad  \Leftrightarrow \quad  \frac{d(U + K + \ldots) }{dV} = \rho u+ \rho\frac{v_i v_i}{2} + \ldots
 \end{equation}
 
 The conservation of energy is the renowned 1\textsuperscript{st} law of thermodynamics, to which we apply the Reynolds and Gauss theorems \eqref{reynolds_theorem},\eqref{gauss_theorem}, and also the Fourier Law for heat conduction $\dot{\vec{q}}_A = k\frac{\partial T}{\partial \vec{x}}$.
-\begin{eqnarray}
+\begin{align}
     \label{differential_energy}
-    dE &=& \delta Q- \delta W \\
-    \frac{dE}{dt} &=& \dot{Q} - \dot{W} \\
-    \int\limits_{\mathcal{V}} \frac{\partial \rho e_u+ \rho\frac{v_iv_i}{2}}{\partial t} dV +  \int\limits_{\mathcal{A}} (\rho e_u + \rho\frac{u_i u_i}{2}) u_j n_j dA
-    &=&  \int\limits_{\mathcal{V}} \dot{q} dV + \int\limits_{\mathcal{A}} k\frac{\partial T}{d x_j} n_j dA - \int\limits_{\mathcal{V}} \rho f_i u_i dV + \int\limits_{\mathcal{A}} \left(\tau_{ij}- p \delta_{ij} \right)u_i n_j dA \\
-    \int\limits_{\mathcal{V}} \rho \frac{\partial \left( e_I+ \rho\frac{v_iv_i}{2}\right)}{\partial t} dV +  \int\limits_{\mathcal{V}} \frac{\partial \left(\rho e_u+ \rho\frac{u_i u_i}{2}\right) u_j}{\partial x_j} dV
-    &=&  \int\limits_{\mathcal{V}} \dot{q} dV + \int\limits_{\mathcal{V}} \frac{\partial} {\partial x_j} \left( k\frac{\partial T}{d x_j} \right) dV - \int\limits_{\mathcal{V}} \rho f_i u_i dV + \int\limits_{\mathcal{V}} \frac{\partial \left(\tau_{ij}u_i- p u_j \right )}{\partial x_j} dV \\
-    \frac{\partial \rho \left( e_I+ \frac{u_i u_i}{2} \right)}{\partial t} +  \frac{\partial \left( e_I + \frac{u_i u_i}{2}\right) \rho u_j}{\partial x_j}
-    &=&  \dot{q} + \frac{\partial} {\partial x_j} \left( k\frac{\partial T}{d x_j} \right) - \rho f_i u_i - \frac{\partial \left(\tau_{ij}u_i- p u_j \right)}{\partial x_j} \\
-	\frac{\partial \rho \left( e_I+ \frac{u_i u_i}{2} \right)}{\partial t} +  \frac{\partial \left( e_u + \frac{u_i u_i}{2} + p  \right)\rho u_j}{\partial x_j}
-    &=&  \dot{q} + \frac{\partial} {\partial x_j} \left( k\frac{\partial T}{d x_j} \right) - \rho f_i u_i - \frac{\partial \tau_{ij}u_i}{\partial x_j}
-\end{eqnarray}
+    dE &= \delta Q- \delta W \\
+    \frac{dE}{dt} &= \dot{Q} - \dot{W} \\
+    \int\limits_{\mathcal{V}} \frac{\partial \rho u+ \rho\frac{v_iv_i}{2}}{\partial t} dV +  \int\limits_{\mathcal{A}} (\rho u + \rho\frac{v_i v_i}{2}) v_j n_j dA
+    &=  \int\limits_{\mathcal{V}} \dot{q} dV + \int\limits_{\mathcal{A}} k\frac{\partial T}{d x_j} n_j dA - \int\limits_{\mathcal{V}} \rho f_i v_i dV + \int\limits_{\mathcal{A}} \left(\tau_{ij}- p \delta_{ij} \right)v_i n_j dA \\
+    \int\limits_{\mathcal{V}}\left( \rho \frac{\partial \left( u+ \rho\frac{v_iv_i}{2}\right)}{\partial t} + \frac{\partial \left(\rho e_u+ \rho\frac{v_i v_i}{2}\right) v_j}{\partial x_j} \right) dV
+    &=  \int\limits_{\mathcal{V}}\left( \dot{q} + \frac{\partial}{\partial x_j} \left( k\frac{\partial T}{d x_j} \right) - \rho f_i v_i + \frac{\partial \left(\tau_{ij}v_i- p v_j \right )}{\partial x_j} \right) dV  \\
+    \frac{\partial \rho \left( u+ \frac{v_i v_i}{2} \right)}{\partial t} +  \frac{\partial \left( u + \frac{v_i v_i}{2}\right) \rho v_j}{\partial x_j}
+    &=  \dot{q} + \frac{\partial} {\partial x_j} \left( k\frac{\partial T}{d x_j} \right) - \rho f_i v_i - \frac{\partial \left(\tau_{ij}v_i- p v_j \right)}{\partial x_j} \\
+	\frac{\partial \rho \left( u+ \frac{v_i v_i}{2} \right)}{\partial t} +  \frac{\partial \left( e_u + \frac{v_i v_i}{2} + p  \right)\rho v_j}{\partial x_j}
+    &=  \dot{q} + \frac{\partial} {\partial x_j} \left( k\frac{\partial T}{d x_j} \right) - \rho f_i v_i - \frac{\partial \tau_{ij}v_i}{\partial x_j}
+\end{align}
 
 
 
@@ -95,17 +95,17 @@ Again defining entropy $S$ has quantity that can be integrated in volume for its
 \end{equation}\
 
 And according to the 2\textsuperscript{nd} law of thermodynamics, in it's differencial forms, using the Reynodls transport theorem \eqref{reynolds_theorem}, and \eqref{gauss_theorem}.
-\begin{eqnarray}
+\begin{align}
     \label{differential_entropy}
-    dS &=& \dfrac{\delta Q}{T} + \delta S_{\text{irev}}\\
-    \frac{dS}{dt} &=& \dfrac{\dot{Q}_{ext}}{T} + \dot{S}_{\text{irev}}\\
+    dS &= \dfrac{\delta Q}{T} + \delta S_{\text{irev}}\\
+    \frac{dS}{dt} &= \dfrac{\dot{Q}_{ext}}{T} + \dot{S}_{\text{irev}}\\
     \int\limits_{\mathcal{V}} \frac{\partial \rho s}{\partial t} dV +
-    \int\limits_{\mathcal{A}} \rho s u_j n_j dA &=&
+    \int\limits_{\mathcal{A}} \rho s v_j n_j dA &=
     \frac{1}{T}\left(\int\limits_{\mathcal{V}} \dot{q} dV + \int\limits_{\mathcal{A}} k\frac{\partial T}{d x_j} n_j dA \right) + \int\limits_{\mathcal{V}} \dot{s}_{\text{irev}} dV\\
     \int\limits_{\mathcal{V}} \frac{\partial \rho s}{\partial t} dV +
-    \int\limits_{\mathcal{V}} \frac{\partial \rho s u_j}{\partial x_j} dV &=& \frac{1}{T}\left(\int\limits_{\mathcal{V}} \dot{q} dV + \int\limits_{\mathcal{V}} \frac{\partial} {\partial x_j} \left( k\frac{\partial T}{d x_j} \right) dV \right) + \int\limits_{\mathcal{V}} \dot{s}_{\text{irev}} dV \\
-    \frac{\partial \rho s}{\partial t} +  \frac{\partial \rho s u_j}{\partial x_j} &=& \frac{1}{T}\left(\dot{q} + \frac{\partial} {\partial x_j} \left( k\frac{\partial T}{d x_j} \right) \right) + \dot{s}_{\text{irev}}
-\end{eqnarray}
+    \int\limits_{\mathcal{V}} \frac{\partial \rho s v_j}{\partial x_j} dV &= \frac{1}{T}\left(\int\limits_{\mathcal{V}} \dot{q} dV + \int\limits_{\mathcal{V}} \frac{\partial} {\partial x_j} \left( k\frac{\partial T}{d x_j} \right) dV \right) + \int\limits_{\mathcal{V}} \dot{s}_{\text{irev}} dV \\
+    \frac{\partial \rho s}{\partial t} +  \frac{\partial \rho s v_j}{\partial x_j} &= \frac{1}{T}\left(\dot{q} + \frac{\partial} {\partial x_j} \left( k\frac{\partial T}{d x_j} \right) \right) + \dot{s}_{\text{irev}}
+\end{align}
 
 
 

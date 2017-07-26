@@ -5,6 +5,7 @@
 \usepackage[english]{babel} 
 
 \usepackage{url}
+\usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
@@ -27,15 +28,42 @@
 \setlength{\captionmargin}{20pt}
 
 
+
+
+
 \usepackage{tikz}
 \usetikzlibrary{mindmap,trees}
 \usetikzlibrary{positioning,shadows,shapes,arrows}
 \pgfdeclarelayer{background}
 \pgfsetlayers{background,main}
+
 \usepackage{soul} 
+\usepackage{enumitem}   % enumeration lists
+\usepackage{ar}         % aspect ratio symbol from wing theory
 
 \newtheorem{defi}{Definition}
 \newtheorem{teo}{Theorem}
 \newtheorem{axi}{Principle}
 
+%-------- Custom Commands -------- 
+% \newcommand\defeq{\overset{\mathrm{def}}{=}}
+\newcommand\defeq{\triangleq}
 
+
+
+\usepackage[usestackEOL]{stackengine}
+\usepackage{scalerel}
+\usepackage{graphicx,amsmath}
+\parskip \baselineskip
+\def\myupbracefill#1{\rotatebox{90}{\stretchto{\{}{#1}}}
+\def\rlwd{.5pt}
+\newcommand\notate[4][B]{%
+  \if B#1\else\def\myupbracefill##1{}\fi%
+  \def\useanchorwidth{T}%
+  \setbox0=\hbox{$\displaystyle#2$}%
+  \def\stackalignment{c}\stackunder[-6pt]{%
+    \def\stackalignment{c}\stackunder[-1.5pt]{%
+      \stackunder[2pt]{\strut $\displaystyle#2$}{\myupbracefill{\wd0}}}{%
+    \rule{\rlwd}{#3\baselineskip}}}{%
+  \strut\kern9pt$\rightarrow$\smash{\rlap{$~\displaystyle#4$}}}%
+}

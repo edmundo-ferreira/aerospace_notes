@@ -13,9 +13,9 @@ The transformation from Body Axes to Earth Axis is given by a rotation of $\phi$
 the x-axis (roll angle), followed by a rotation of $\theta$ around the y-axis (pitch angle)
 and finally a rotation of $\psi$ around the z-axis (yaw angle).
 
-\begin{eqnarray*}
-    T_{BE} &=& R_z(\psi) R_y(\theta) R_x(\phi) \\
-    T_{BE} &=&
+\begin{align*}
+    T_{BE} &= R_z(\psi) R_y(\theta) R_x(\phi) \\
+    T_{BE} &=
     \begin{bmatrix}
         cos(\psi)&   -sin(\psi)&    0\\
         sin(\psi)&    cos(\psi)&    0\\
@@ -31,20 +31,20 @@ and finally a rotation of $\psi$ around the z-axis (yaw angle).
         0&    cos(\phi)&      -sin(\phi)\\
         0&    sin(\phi)&      cos(\phi)\\
     \end{bmatrix}\\
-    T_{BE} &=&
+    T_{BE} &=
     \begin{bmatrix}
         cos(\theta)cos(\psi)&    sin(\theta)sin(\phi)cos(\psi)- cos(\phi)sin(\psi)&   sin(\theta)cos(\phi)cos(\psi) + sin(\phi)sin(\psi)\\
         cos(\theta)sin(\psi)&    sin(\theta)sin(\phi)sin(\psi)+ cos(\phi)cos(\psi)&   sin(\theta)cos(\phi)sin(\psi) - sin(\phi)cos(\psi)\\
         -sin(\theta)&            cos(\theta)sin(\phi)&                                  cos(\theta)cos(\phi)\\
     \end{bmatrix}
-\end{eqnarray*}
+\end{align*}
 
 The inverse transformation from Earth Axes to Body Axes will be given by:
-\begin{eqnarray*}
-    T_{EB} &=& {T_{BE}}^{-1} = {T_{BE}}^T\\
-    T_{EB} &=& (R_z(\psi) R_y(\theta) R_x(\phi))^T \\
-    T_{EB} &=& R_x(\phi)^T R_y(\theta)^T  R_z(\psi)^T\\
-    T_{EB} &=&
+\begin{align*}
+    T_{EB} &= {T_{BE}}^{-1} = {T_{BE}}^T\\
+    T_{EB} &= (R_z(\psi) R_y(\theta) R_x(\phi))^T \\
+    T_{EB} &= R_x(\phi)^T R_y(\theta)^T  R_z(\psi)^T\\
+    T_{EB} &=
     \begin{bmatrix}
         1&    0&                0\\
         0&    cos(\phi)&       sin(\phi)\\
@@ -60,13 +60,13 @@ The inverse transformation from Earth Axes to Body Axes will be given by:
         -sin(\psi)&    cos(\psi)&    0\\
         0&              0&          1\\
     \end{bmatrix}\\
-    T_{EB} &=&
+    T_{EB} &=
     \begin{bmatrix}
         cos(\theta)cos(\psi)&                                  cos(\theta)sin(\psi)&                                 -sin(\theta)\\
         sin(\theta)sin(\phi)cos(\psi)- cos(\phi)sin(\psi)&     sin(\theta)sin(\phi)sin(\psi)+ cos(\phi)cos(\psi)&    cos(\theta)sin(\phi)\\
         sin(\theta)cos(\phi)cos(\psi) + sin(\phi)sin(\psi)&    sin(\theta)cos(\phi)sin(\psi) - sin(\phi)cos(\psi)&   cos(\theta)cos(\phi)\\
     \end{bmatrix}
-\end{eqnarray*}
+\end{align*}
 
 
 
@@ -76,9 +76,9 @@ body axes.
 The transformation from Wind Axes to Body Axes ($T_{WB}$) is given by a rotation of $\beta$
 around the z-axis of the wind frame, followed by a rotation of $-\alpha$ around y-axis.
 
-\begin{eqnarray}
-    T_{WB} &=& R_y(-\alpha) R_z(\beta) \\
-    T_{WB} &=&
+\begin{align}
+    T_{WB} &= R_y(-\alpha) R_z(\beta) \\
+    T_{WB} &=
     \begin{bmatrix}
         cos(\alpha)&    0&      -sin(\alpha)\\
         0&              1&      0\\
@@ -89,20 +89,20 @@ around the z-axis of the wind frame, followed by a rotation of $-\alpha$ around 
         sin(\beta)&    cos(\beta)&    0\\
         0&              0&            1\\
     \end{bmatrix}\\
-    T_{WB} &=&
+    T_{WB} &=
     \begin{bmatrix}
         cos(\alpha)cos(\beta)&    -cos(\alpha)sin(\beta)&   -sin(\alpha)\\
         sin(\beta)&                cos(\beta)&               0\\
         sin(\alpha)cos(\beta)&    -sin(\alpha)sin(\beta)&   cos(\alpha)\\
     \end{bmatrix}
-\end{eqnarray}
+\end{align}
 
 The inverse transformation from Body Axes to Wind Axes is given by:
-\begin{eqnarray}
-    T_{BW} &=& {T_{WB}}^{-1} = {T_{WB}}^{T} \\
-    T_{BW} &=& (R_y(-\alpha) R_z(\beta))^T \\
-    T_{BW} &=& R_z(\beta)^T R_y(-\alpha)^T \\
-    T_{BW} &=&
+\begin{align}
+    T_{BW} &= {T_{WB}}^{-1} = {T_{WB}}^{T} \\
+    T_{BW} &= (R_y(-\alpha) R_z(\beta))^T \\
+    T_{BW} &= R_z(\beta)^T R_y(-\alpha)^T \\
+    T_{BW} &=
     \begin{bmatrix}
         cos(\beta)&     sin(\beta)&    0\\
         -sin(\beta)&    cos(\beta)&    0\\
@@ -113,30 +113,30 @@ The inverse transformation from Body Axes to Wind Axes is given by:
         0&              1&      0\\
         -sin(\alpha)&   0&      cos(\alpha)\\
     \end{bmatrix}\\
-    T_{BW} &=&
+    T_{BW} &=
     \begin{bmatrix}
         cos(\alpha)cos(\beta)&    sin(\beta)&   sin(\alpha)cos(\beta)\\
        -cos(\alpha)sin(\beta)&    cos(\beta)&  -sin(\alpha)sin(\beta)\\
        -sin(\alpha)&              0&            cos(\alpha)\\
     \end{bmatrix}
-\end{eqnarray}
+\end{align}
 
 
 \subsubsection{Transformation Earth-Wind}
 The transformation from Earth Axes to Wind Axes is the composition of Earth to Body
 then Body to Wind, i.e.:
 
-\begin{eqnarray}
-    T_{EW} &=& T_{BW}T_{EB}\\
-    T_{EW} &=& (R_z(\beta)^T R_y(-\alpha)^T) (R_x(\phi)^T R_y(\theta)^T  R_z(\psi)^T)
-\end{eqnarray}
+\begin{align}
+    T_{EW} &= T_{BW}T_{EB}\\
+    T_{EW} &= (R_z(\beta)^T R_y(-\alpha)^T) (R_x(\phi)^T R_y(\theta)^T  R_z(\psi)^T)
+\end{align}
 
 The transformation from Wind to Earth Axes would be:
 
-\begin{eqnarray}
-    T_{WE} &=& T_{BE}T_{WB}\\
-    T_{W\rightarrow NED} &=& (R_z(\psi) R_y(\theta) R_x(\phi)) (R_y(-\alpha) R_z(\beta)) \\
-\end{eqnarray}
+\begin{align}
+    T_{WE} &= T_{BE}T_{WB}\\
+    T_{W\rightarrow NED} &= (R_z(\psi) R_y(\theta) R_x(\phi)) (R_y(-\alpha) R_z(\beta)) \\
+\end{align}
 
 
 \newpage
@@ -216,30 +216,30 @@ Some of the important properties of the load factor, according to these definiti
 in the aircraft in a certain instant and also that the load factor sign is dependent on the choice of reference frame, since it is tied to
 sign of acceleration in that axis.
 
-\begin{eqnarray}
-\Sigma F_i &=& m a_i \\
-\end{eqnarray}
+\begin{align}
+\Sigma F_i &= m a_i \\
+\end{align}
 A since the mass can be written as weight.
 
 
 
-\begin{eqnarray}
-W &=& m g \\
-\Sigma F_i &=& W \frac{a_i}{g}
-\end{eqnarray}
+\begin{align}
+W &= m g \\
+\Sigma F_i &= W \frac{a_i}{g}
+\end{align}
 Leading to two definitions of load factor.
-\begin{eqnarray}
-n_i &\equiv& \frac{\Sigma F_i}{W} \\
-n_i &\equiv& \frac{a_i}{g}
-\end{eqnarray}
+\begin{align}
+n_i &\defeq \frac{\Sigma F_i}{W} \\
+n_i &\defeq \frac{a_i}{g}
+\end{align}
 
 Although useful this definition it includes a subtlety, in the sum of all forces i.e. resultant force, the weight force can be included
 or not in that resultant, therefore a new load factor can be defined by excluding that weight factor from the resultant force and adding it to the inertial force.
-\begin{eqnarray}
-n_i &=& \frac{\Sigma F_i \mp k_iW}{W} \\
-n_i \pm k_i &=& \frac{\Sigma F_i}{W} \\
-\bar{n}_i &\equiv& n_i \pm k_i
-\end{eqnarray}
+\begin{align}
+    n_i &= \frac{\Sigma F_i \mp k_iW}{W} \\
+    n_i \pm k_i &= \frac{\Sigma F_i}{W} \\
+    \bar{n}_i &\defeq n_i \pm k_i
+\end{align}
 
 Therefore the new definition of load factor differs from the previous by weight factor $\pm k_i$ depending again on the reference frame orientation.
 

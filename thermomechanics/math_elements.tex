@@ -2,27 +2,33 @@
 
 \section{Calculus}
 \begin{teo}[\textbf{Gauss Theorem}]
-\begin{gather}
+\begin{align}
     \label{gauss_theorem}
-\end{gather}
+    \int\limits_{\mathcal{V}}  \frac{\partial T_{jk\ldots}}{\partial x_i} dV
+    &= \int\limits_{\mathcal{A}}  T_{jk\ldots} n_i dA \\
+    \int\limits_{\mathcal{V}}  \boldsymbol\nabla  \boldsymbol{T} dV
+    &=\int\limits_{\mathcal{A}} \boldsymbol{T} \otimes \boldsymbol{n} dA
+\end{align}
 \end{teo}
 
 \begin{teo}[\textbf{Stokes Theorem}]
-\begin{gather}
+\begin{align}
     \label{stokes_theorem}
-\end{gather}
+    \int\limits_{\mathcal{A}}  e_{ijk}\frac{\partial T_{kl\ldots}}{\partial x_j}n_i dA 
+    &= \oint\limits_{\mathcal{C}}  T_{kl\ldots} dx_k \\
+    \int\limits_{\mathcal{A}}  \boldsymbol\nabla \times \boldsymbol{T} \cdot \boldsymbol{n} dA
+    &=\oint\limits_{\mathcal{C}} \boldsymbol{T} \cdot d\boldsymbol{x}
+\end{align}
 \end{teo}
 
 \begin{teo}[\textbf{Reynolds Transport Theorem}]
-The Reynolds transport theorem is fundamental in expressing extensive properties $\boldsymbol{A}$, with a volumetric density of $\boldsymbol\alpha$, in generalized flow field with velocity $\textbf{v}$.
-\begin{equation}
+\begin{align}
     \label{reynolds_theorem}
-\frac{d}{dt} \int\limits_{\mathcal{V}}  \boldsymbol\alpha dV
-=\int\limits_{\mathcal{V}} \frac{\partial \boldsymbol\alpha}{\partial t} dV
-+\int\limits_{\mathcal{S}} \boldsymbol\alpha u_j n_j dS
-\end{equation}
-%=\int\limits_V \left( \frac{\partial \boldsymbol\alpha}{\partial t} +
-% \frac{\partial \boldsymbol\alpha u_i}{\partial x_i} \right) dV
+    \frac{d}{dt} \int\limits_{\mathcal{V}(t)} T_{jk\ldots}(t,x_i)  dV
+    &= \int\limits_{\mathcal{V}(t)} \frac{\partial T_{jk\ldots}}{\partial t} dV + \int\limits_{\mathcal{A}(t)} T_{jk\ldots}v_i n_i  dA  \\
+    \frac{d}{dt} \int\limits_{\mathcal{V}}  \boldsymbol{T}(t,\boldsymbol{x}) dV
+    &= \int\limits_{\mathcal{V}} \frac{\partial \boldsymbol{T}}{\partial t} dV +\int\limits_{\mathcal{A}} \boldsymbol{T} \boldsymbol{v}\cdot \boldsymbol{n} dA
+\end{align}
 \end{teo}
 
 
@@ -40,31 +46,32 @@ Corresponds to the case where the functor $F$ has a codomain witch is the real n
 \end{defi}
 
 A common class of  functionals $I$ are the ones that are obtain has integrals of functors $F$ which makes them immediately comply with a real codomain requisite.
-\begin{gather}
+\begin{equation}
 I[f(x)]=\int_{x_1}^{x_2}F[f(x)]dx
 \label{integral_variation}
-\end{gather}  
+\end{equation}  
 In calculus the concepts of \textbf{differential} $d$ and \textbf{derivative} $\dfrac{d}{dx}$ are crucial for the determination of maximum and minimum of function, the analogy of these operations to variational calculus are called \textbf{variations} $\delta$ and \textbf{functional derivative} $\dfrac{\delta}{\delta f}$.
 Curiously enough the first variation has very similar rules to those of differential, so without proving them we show some of the most important rules in \eqref{variation_rules}
-\begin{subequations}
+
 \begin{align}
 \delta F[f]&=\dfrac{\partial F}{\partial f}\delta f\\
 \delta F[f,g]&=\dfrac{\partial F}{\partial f}\delta f + \dfrac{\partial F}{\partial g}\delta g\\
 \delta (\alpha I)&= \alpha \delta I\\
 \delta (I+J)&=\delta I + \delta J\\
 \delta (I\times J)&=J\delta I + I\delta J\\
-\delta \left( \dfrac{I}{J} \right)&=\dfrac{J\delta I - I\delta J}{(\delta J)^2}\\
+\delta \left( \dfrac{I}{J} \right)&=\dfrac{J\delta I - I\delta J}{(\delta J)^2}
 \end{align}\label{variation_rules}
-\end{subequations}
+
 Therefore the first variation of \eqref{integral_variation}, will be the following.
-\begin{gather}
+\begin{equation}
 \delta I = \delta \int_{x_1}^{x_2}F[f(x)]dx= \int_{x_1}^{x_2} \delta F[f(x)]dx= \int_{x_1}^{x_2} \dfrac{\partial F}{\partial f}\delta f \; dx
-\end{gather}
+\end{equation}
+
 \begin{teo}[\textbf{Fundamental Theorem of Calculus of Variations}]
-\begin{gather}
+\begin{equation}
 \int_{x_1}^{x_2} f(x)h(x) dx = 0 \Leftrightarrow f(x)=0 \quad \forall \; f,h \subset \mathcal{C}^k \; \land h(x_1)=h(x_2)=0 \land x \in [x_1,x_2]  
 \label{ftv}
-\end{gather}
+\end{equation}
 \end{teo}
 Variational calculus is not only important in the determination of physical laws, but is all applied in the numerical solutions of those sames laws, being the foundation of  methods like the Ritz and Galerkin and the finite element method. 
 
